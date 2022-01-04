@@ -39,6 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'accounts',
+
+    'django.contrib.sites',
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # ... include the providers you want to enable:
+    'allauth.socialaccount.providers.auth0',
+    'allauth.socialaccount.providers.kakao',
 ]
 
 MIDDLEWARE = [

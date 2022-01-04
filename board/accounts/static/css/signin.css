@@ -64,7 +64,7 @@ body {
   position:relative;
   left:40%;
   transform: translateX(-50%);
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   width:80%;
   height:40px;
   background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);

@@ -8,8 +8,30 @@
 
     <link rel="stylesheet" href="../static/css/signin.css">
 
-    
+    <!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      window.Kakao.init("b88cbf4ee6bf965b90198fd0d4cadeff");
+
+      function kakaoLogin() {
+        window.Kakao.Auth.login({
+          scope:'profile, account_email, gender',
+          success: function(authObj) {
+            console.log(authObj);
+            window.Kakao.API.request({
+              user:'/v2/user/me',
+              success: res => {
+                const kakao_account = res.kakao_account;
+                console.log(kakao_account)
+              }
+            });
+          }
+        });
+      }
+    </script> -->
+
 </head>
+
+ 
 
   <body width="100%" height="100%">
     <form method="POST" class="loginForm">
@@ -24,9 +46,9 @@
       <button type="submit" class="btn">
         LOG IN
       </button>
-
+      <a href="{% url 'kakao-login' %}"><img style="margin-bottom:10px;" src="../static/img/kakao_login_medium_narrow.png" alt="없음"></a>
       <div class="bottomText">
-        Don't you have ID? <a href="signup">sign up</a>
+        Don't you have ID? <a href="{% url 'signup' %}">Sign up</a>
       </div>
     </form>
   </body>

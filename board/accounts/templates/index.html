@@ -9,10 +9,18 @@
 <body>
     {% if user.is_authenticated %}
     로그인 성공!
-    {{ user.username }} 님 환영합니다.
+    {{ user.name }} 님 환영합니다.
     <a href="{% url 'signout' %}">Log out</a>
+
     {% else %}
-    뭐지
+    <h2>로그인이 필요합니다</h2>
+    <div class="bottomText">
+        <a href="{% url 'signin' %}">Sign in</a>
+        <h5>or</h5>
+        <a href="{% url 'signup' %}">Sign up</a>
+    </div>
     {% endif %}
+    <h3>게시판</h3>
+    <a href="/main">board 1</a>
 </body>
 </html>
