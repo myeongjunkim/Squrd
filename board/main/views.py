@@ -8,11 +8,20 @@ def main(request):
     contents = Content.objects.all()
     return render(request, 'main.html', {'contents':contents})
 
+def main2(request):
+    contents = Content.objects.all()
+    return render(request, 'main2.html', {'contents':contents})
+
+def main3(request):
+    contents = Content.objects.all()
+    return render(request, 'main3.html', {'contents':contents})
+
 def create(request):
     new_content = Content()
     new_content.title = request.POST['title']
     new_content.writer = request.POST['writer']
     new_content.body = request.POST['body']
+    # new_content.pw = request.POST['password']
     new_content.pub_date = timezone.now()
     new_content.save()
     return redirect('main')

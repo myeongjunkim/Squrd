@@ -1,8 +1,9 @@
 .detail {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10%;
-    width: 50%;
+    margin-top:120px;
+    width:90%;
+    margin-left:5%;
+    height:auto;
+    background-color:white;
+    overflow: auto;
 }
 

@@ -13,8 +13,7 @@
     const list = document.querySelectorAll('.list');
     list.forEach((item) => 
     item.classList.remove('active'));
-    list[1].classList.add('active');
-
+    list[2].classList.add('active');
   }
 </script>
 <!-- JavaScript Bundle with Popper -->
@@ -24,7 +23,7 @@
 {% block contents %}
 <div class="contents">
   
-  <div class="bordTitle">Notice</div>
+  <div class="bordTitle">Feedback</div>
     
   <div class="table-container">
     <table class="table">
@@ -37,15 +36,7 @@
       </thead>
 
       <tbody>
-        {% for content in contents %}
-        <tr>
-          <th class="row1" scope="row">{{content.writer}}</th>
-          <td class="row2"><a href="{% url 'detail' content.id %}">{{content.title}}</a></td>
-          <td class="row3">
-            <a href="{% url 'delete' content.id %}" class="btn-close" aria-label="Close"></a>
-          </td>
-        </tr>
-        {% endfor %}
+        준비중...
       </tbody>
     </table>
   </div>
@@ -58,10 +49,9 @@
 
 
 {% block contents2 %}
-
-<button type="button" class="newBtn btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  NEW POST
-</button>
+  <button type="button" class="newBtn btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    NEW POST
+  </button>
 
 <!-- modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

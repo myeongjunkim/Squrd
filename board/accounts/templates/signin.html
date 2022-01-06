@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../static/css/signin.css">
-
-    <!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
-      window.Kakao.init("b88cbf4ee6bf965b90198fd0d4cadeff");
-
-      function kakaoLogin() {
-        window.Kakao.Auth.login({
-          scope:'profile, account_email, gender',
-          success: function(authObj) {
-            console.log(authObj);
-            window.Kakao.API.request({
-              user:'/v2/user/me',
-              success: res => {
-                const kakao_account = res.kakao_account;
-                console.log(kakao_account)
-              }
-            });
-          }
-        });
-      }
-    </script> -->
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    
+   
 
 </head>
 
