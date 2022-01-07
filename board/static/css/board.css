@@ -1,0 +1,47 @@
+.contents{
+    /* padding-top:220px; */
+    margin-top:120px;
+    width:90%;
+    margin-left:5%;
+    background-color: white;
+    overflow: auto;
+}
+.bordTitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.table-container{
+    width:100%;
+}
+
+.row1 {
+    width:20%;
+}
+
+.row2 {
+    width:70%;
+}
+
+.row3 {
+    width:10%;
+    color:white;
+}
+
+.text-center{
+    width:100px;
+}
+
+.modal-dialog{
+    max-width: 450px;
+}
+
+.newBtn {
+    position:fixed;
+    width:30%;
+    max-width: calc(480px*0.3);
+    transform: translateX(0);
+    bottom:5%;
+    /* background-color: #87f3f7;;
+    color: #0d6efd; */
+}

@@ -11,21 +11,29 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os, json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_FILE = os.path.join(BASE_DIR, 'secrets.json')
 
+
+with open(SECRET_FILE) as f:
+    secrets = json.loads(f.read())
+
+def get_secret(setting, secrets=secrets):
+    return secrets[setting]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2xrqtz0jt2fho!ykvtz)t$3s=vpt42*3)apz_!x-ks6i1clvm8'
+SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -131,9 +139,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# collect static
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'board', 'static'), 
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+
