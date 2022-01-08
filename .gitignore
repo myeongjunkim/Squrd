@@ -142,6 +142,9 @@ myvenv/
 .dmypy.json
 dmypy.json
 
+# secret key
+secrets.json
+
 # Pyre type checker
 .pyre/
 
@@ -152,4 +155,4 @@ dmypy.json
 cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
-secrets.json
+
