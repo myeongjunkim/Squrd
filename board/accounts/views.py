@@ -67,7 +67,8 @@ def signout(request):
 
 def kakao_login(request):
     client_id = get_secret('KAKAO_REST_KEY')
-    REDIRECT_URI = "http://127.0.0.1:8000/login/kakao/callback"
+    REDIRECT_URI = "http://127.0.0.1:8000/accounts/login/kakao/callback"
+    # REDIRECT_URI = "http://ec2-54-180-95-65.ap-northeast-2.compute.amazonaws.com:8080/accounts/login/kakao/callback"
     return redirect(
         f"https://kauth.kakao.com/oauth/authorize?client_id={client_id}&redirect_uri={REDIRECT_URI}&response_type=code"
     )
@@ -76,7 +77,8 @@ def kakao_login_callback(request):
     code = request.GET.get("code")
     client_id = get_secret('KAKAO_REST_KEY')
     client_secret = get_secret('CLIENT_SECRET')
-    REDIRECT_URI = "http://127.0.0.1:8000/login/kakao/callback"
+    REDIRECT_URI = "http://127.0.0.1:8000/accounts/login/kakao/callback"
+    # REDIRECT_URI = "http://ec2-54-180-95-65.ap-northeast-2.compute.amazonaws.com:8080/accounts/login/kakao/callback"
     #(2)
     token_request = requests.post(
             f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={client_id}&redirect_uri={REDIRECT_URI}&code={code}&client_secret={client_secret}",
