@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block header %}
+
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
 <script>
     window.onload = () => {
       const list = document.querySelectorAll('.list');
@@ -13,5 +15,10 @@
 {% endblock %}
 
 {% block contents %}
-hello
+<div class="article">
+    <div class="">
+
+    </div>
+</div>
+
 {% endblock %}

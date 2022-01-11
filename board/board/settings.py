@@ -145,7 +145,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'board', 'static'), 
     os.path.join(BASE_DIR, 'main', 'static'), 
-    os.path.join(BASE_DIR, 'accounts', 'static'), 
+    os.path.join(BASE_DIR, 'accounts', 'static'),
+    os.path.join(BASE_DIR, 'crawling', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
