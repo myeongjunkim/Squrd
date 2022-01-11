@@ -21,6 +21,7 @@ from accounts.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
+    path('crawling/', include('crawling.urls')),
     path('main/', include('main.urls')),
     path('accounts/', include('accounts.urls')),
     path('kakao/', include('allauth.urls')),
