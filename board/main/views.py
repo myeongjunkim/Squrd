@@ -34,8 +34,10 @@ def delete(request, id):
 def detail(request, id):
     content = get_object_or_404(Content, pk = id)
     comments = Comment.objects.filter(post = id)
+    print(request.user.name)
     if request.method == "POST":
         comment = Comment()
+        # comment.writer = request.user.name
         comment.post = content
         comment.body = request.POST['body']
         comment.date = timezone.now()

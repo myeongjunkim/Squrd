@@ -37,15 +37,17 @@
       </thead>
 
       <tbody>
-        {% for content in contents %}
-        <tr>
-          <th class="row1" scope="row">{{content.writer}}</th>
-          <td class="row2"><a href="{% url 'detail' content.id %}">{{content.title}}</a></td>
-          <td class="row3">
-            <a href="{% url 'delete' content.id %}" class="btn-close" aria-label="Close"></a>
-          </td>
-        </tr>
-        {% endfor %}
+        {% if contents %}
+          {% for content in contents %}
+          <tr>
+            <th class="row1" scope="row">{{content.writer}}</th>
+            <td class="row2"><a href="{% url 'detail' content.id %}">{{content.title}}</a></td>
+            <td class="row3">
+              <a href="{% url 'delete' content.id %}" class="btn-close" aria-label="Close"></a>
+            </td>
+          </tr>
+          {% endfor %}
+        {% endif %}
       </tbody>
     </table>
   </div>
