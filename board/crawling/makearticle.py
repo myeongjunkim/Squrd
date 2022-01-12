@@ -25,9 +25,9 @@ urllib3.disable_warnings()
 entertain={
     "스포츠조선":{"url":"https://sports.chosun.com","main_div":".welcome-post","title":".post-title","img_div":".post-thumb"},
     "탠아시아":{"url":"https://tenasia.hankyung.com","main_div":".news-top","title":".news-tit","img_div":".thumb"},
-    "스포츠월드":{"url":"https://www.sportsworldi.com/enterCulture","main_div":".mainHeadline","title":".tit","img_div":".pic"},
+    "스포츠월드":{"url":"https://www.sportsworldi.com","main_div":"#wps_layout1_box1","title":".tit","img_div":".pic"},
     "imbc":{"url":"https://enews.imbc.com","main_div":".article-first","title":".title","img_div":"a"},
-    "sbs연예":{"url":"https://ent.sbs.co.kr/news/main.do","main_div":".news_wide_list","title":".nwl_title","img_div":".nwl_image_w"},
+    "sbs연예":{"url":"https://ent.sbs.co.kr","main_div":".news_wide_list","title":".nwl_title","img_div":".nwl_image_w"},
     "스포츠동아":{"url":"https://sports.donga.com","main_div":".large","title":".txt","img_div":".thumb"},
     "티비리포트":{"url":"https://www.tvreport.co.kr","main_div":"#homepage-feature-banner-1","title":".main-img-title","img_div":".banner-image"},
     "티비데일리":{"url":"http://tvdaily.co.kr","main_div":".head_0","title":".ellipsis_txt1","img_div":".thum"},
@@ -60,9 +60,9 @@ def get_htmlsoup(entertain_name):
     return soup
 
 
-def update_article(title, href, img_url):
+def update_article(entertain_name, title, href, img_url):
     try:
-        update_article = Article.objects.get(title= title)
+        update_article = Article.objects.get(entertain_name= entertain_name)
     except Article.DoesNotExist:
         update_article = None
         print("안들어옴!!")
@@ -70,7 +70,7 @@ def update_article(title, href, img_url):
     if update_article is None:
         update_article = Article()
         print("생성")
-    if update_article.title != title:
+    if update_article.entertain_name != entertain_name:
         update_article.title = title
         update_article.href = href
         update_article.img_url = img_url
@@ -88,7 +88,7 @@ def get_source(soup, entertain_name):
     img_url = check_url(img_url, entertain[entertain_name]["url"])
 
     # push data 
-    update_article(title, href, img_url)
+    update_article(entertain_name, title, href, img_url)
 
 
 def crawling_main():
