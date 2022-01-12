@@ -1,17 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block contents %}
+<div class="index">
+    
+    <div class="intro">
+        <h2 style="font-weight: 600;">Squrd 게시판입니다!</h3>
+        <div>세가지 게시판을 방문하고 댓글을 남기며</div> 
+        <div>다양한 사람과 소통해보세요!</div>
+    </div>
+    
+    
     {% if user.is_authenticated %}
-    로그인 성공!
-    {{ user.username }} 님 환영합니다.
+    <div class="userInfo">
+        <span style="font-weight: 500;">{{ user.name }} 님 환영합니다.</span>
+        <a href="{% url 'signout' %}">Log out</a>
+    </div>
+    
+
+    <div class="cards">
+        <div class="card" style="width: 30%;">
+            <a href="{% url 'main' %}">
+                <img src="../static/img/board1.png" class="card-img-top" alt="board1">
+                <div class="card-body">
+                    <p class="card-text">Notice</p>
+                </div>
+            </a>
+        </div>
+        <div class="card" style="width: 30%;">
+            <a href="{% url 'main2' %}">
+                <img src="../static/img/board2.png" class="card-img-top" alt="board2">
+                <div class="card-body">
+                    <p class="card-text">Feedback</p>
+                </div>
+            </a>
+        </div>
+        <div class="card" style="width: 30%;">
+            <a href="{% url 'main3' %}">
+                <img src="../static/img/board3.png" class="card-img-top" alt="board3">
+                <div class="card-body">
+                    <p class="card-text">All</p>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+
     {% else %}
-    뭐지
+    
+    <div class="col text-center">
+        <a href="{% url 'signin' %}" class="newBtn btn btn-primary" style>
+          Log in
+        </a>
+    </div>
+
     {% endif %}
-</body>
-</html>
+
+</div>
+{% endblock %}

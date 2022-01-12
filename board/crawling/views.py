@@ -1,5 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.utils import timezone
+from .models import *
+# from .makearticle import *
 
-# Create your views here.
 def article(request):
-    return render(request, 'article.html')
+    # crawling_main()
+    update_time = timezone.now
+    articles = Article.objects.all()
+    return render(request, 'article.html', {'articles':articles, "update_time":update_time})
+
+def update_article(request):
+    # crawling_main()
+    print(timezone.now)
+    return redirect('article')

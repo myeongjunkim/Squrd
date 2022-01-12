@@ -1,5 +1,5 @@
 .article {
-    margin-top:120px;
+    margin-top:150px;
     width:90%;
     margin-left:5%;
     height:auto;
@@ -7,3 +7,14 @@
     overflow: auto;
 }
 
+.update{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update a ion-icon{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}

@@ -16,9 +16,36 @@
 
 {% block contents %}
 <div class="article">
-    <div class="">
-
+    <h3>Entertainment News</h3>
+    <div class="entertain">
+        
+        {% if articles %}
+        {% for article  in articles %}
+            {% if forloop.first %}
+                <div class="card">
+                    <a href="{{article.href}}">
+                        <img src="{{article.img_url}}" style="width:100%; height:100%;" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">{{article.title}}</p>
+                        </div>    
+                    </a>
+                </div>
+            {% else %}
+                <div><a href="{{article.href}}">{{article.title}}</a></div>
+            {% endif %}
+        {% endfor %}
+        {% else %}
+            <div>파일 없음</div>
+        {% endif %}
     </div>
+    <br>
+    <div class="update">
+        <span>{{update_time}} updated</span>
+        <a href="{% url 'update_article' %}">
+            <ion-icon name="sync-outline"></ion-icon>
+        </a>
+    </div>
+    
 </div>
 
 {% endblock %}
