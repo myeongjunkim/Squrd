@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'accounts',
     'crawling',
 
+    'django_crontab',
+
     'django.contrib.sites',
     # allauth
     'allauth',
@@ -158,4 +160,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
 
+
+
+
+
+CRONJOBS = [
+    ('* * * * *', 'django.core.management.call_command', ['makearticle'], {})
+]
 

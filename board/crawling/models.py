@@ -8,7 +8,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     href = models.CharField(max_length=200)
     img_url = models.CharField(max_length=200, null=True)
-    pub_date = models.DateTimeField(default=timezone.now)
+    pub_date = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
         return self.title

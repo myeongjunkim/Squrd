@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import os, django, sys, io, requests, urllib3
 from django.utils import timezone
 
-sys.path.append('../')
+sys.path.append('../../')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "board.settings")
 django.setup()
 
@@ -10,8 +10,8 @@ from crawling.models import *
 from django.apps import AppConfig
 
 # -*- coding: utf-8 -*-
-sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8') 
-sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
+# sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8') 
+# sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 
 # 경고창 제거
 urllib3.disable_warnings()
@@ -64,13 +64,18 @@ def update_article(entertain_name, title, href, img_url):
         update_article.entertain_name = entertain_name
         print("생성!!")
 
+    print(update_article.pub_date)
+    
     
     if update_article.title != title:
         print("업데이트!")
+        print("이전", update_article.title)
+        print("이후", title)
         update_article.title = title
         update_article.href = href
         update_article.img_url = img_url
         update_article.save()
+
 
 
 def get_source(soup, entertain_name):
@@ -92,7 +97,6 @@ def crawling_main():
         soup = get_htmlsoup(entertain_name)
         get_source(soup, entertain_name)
 
-    # return timezone.now
     
 
 crawling_main()
