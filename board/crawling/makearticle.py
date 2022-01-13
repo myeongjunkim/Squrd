@@ -1,14 +1,10 @@
-import requests
 from bs4 import BeautifulSoup
-import urllib3
-
-import os, django, sys, io
+import os, django, sys, io, requests, urllib3
+from django.utils import timezone
 
 sys.path.append('../')
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "board.settings")
 django.setup()
-
 
 from crawling.models import *
 from django.apps import AppConfig
@@ -22,7 +18,7 @@ urllib3.disable_warnings()
 
 
 # 사이트별 class name 조사
-entertain={
+ENTERTAIN={
     "스포츠조선":{"url":"https://sports.chosun.com","main_div":".welcome-post","title":".post-title","img_div":".post-thumb"},
     "탠아시아":{"url":"https://tenasia.hankyung.com","main_div":".news-top","title":".news-tit","img_div":".thumb"},
     "스포츠월드":{"url":"https://www.sportsworldi.com","main_div":"#wps_layout1_box1","title":".tit","img_div":".pic"},
@@ -52,7 +48,7 @@ def check_url(url, domain):
 
 
 def get_htmlsoup(entertain_name):
-    source = requests.get(entertain[entertain_name]["url"], verify=False)
+    source = requests.get(ENTERTAIN[entertain_name]["url"], verify=False)
     source.raise_for_status()
     source.encoding=None
     # soup = BeautifulSoup(source.content.decode('euc-kr','replace'), 'html.parser')
@@ -64,13 +60,13 @@ def update_article(entertain_name, title, href, img_url):
     try:
         update_article = Article.objects.get(entertain_name= entertain_name)
     except Article.DoesNotExist:
-        update_article = None
-        print("안들어옴!!")
-
-    if update_article is None:
         update_article = Article()
-        print("생성")
-    if update_article.entertain_name != entertain_name:
+        update_article.entertain_name = entertain_name
+        print("생성!!")
+
+    
+    if update_article.title != title:
+        print("업데이트!")
         update_article.title = title
         update_article.href = href
         update_article.img_url = img_url
@@ -78,24 +74,26 @@ def update_article(entertain_name, title, href, img_url):
 
 
 def get_source(soup, entertain_name):
-    main_div = soup.select_one(entertain[entertain_name]["main_div"])
+    main_div = soup.select_one(ENTERTAIN[entertain_name]["main_div"])
     # data
-    title = main_div.select_one(entertain[entertain_name]["title"]).text.strip()
+    title = main_div.select_one(ENTERTAIN[entertain_name]["title"]).text.strip()
     href = main_div.select_one("a")["href"]
-    img_url = main_div.select_one(entertain[entertain_name]["img_div"]+" img")["src"]
+    img_url = main_div.select_one(ENTERTAIN[entertain_name]["img_div"]+" img")["src"]
 
-    href = check_url(href, entertain[entertain_name]["url"])
-    img_url = check_url(img_url, entertain[entertain_name]["url"])
+    href = check_url(href, ENTERTAIN[entertain_name]["url"])
+    img_url = check_url(img_url, ENTERTAIN[entertain_name]["url"])
 
     # push data 
     update_article(entertain_name, title, href, img_url)
 
 
 def crawling_main():
-    for entertain_name in entertain:
+    for entertain_name in ENTERTAIN:
         soup = get_htmlsoup(entertain_name)
         get_source(soup, entertain_name)
 
+    # return timezone.now
+    
 
 crawling_main()
 

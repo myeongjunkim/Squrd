@@ -4,6 +4,10 @@
 {% block header %}
 
 <link rel="stylesheet" href="{% static 'css/article.css' %}">
+<script src="{% static 'js/article.js' %}"></script>
+<!-- <script src="../js/starData.js"></script> -->
+
+
 <script>
     window.onload = () => {
       const list = document.querySelectorAll('.list');
@@ -20,7 +24,7 @@
     <div class="entertain">
         
         {% if articles %}
-        {% for article  in articles %}
+        {% for article  in articles reversed %}
             {% if forloop.first %}
             <div class="card">
                 <a href="{{article.href}}" target='_blank'>
@@ -47,6 +51,7 @@
         <a href="{% url 'update_article' %}">
             <ion-icon name="sync-outline"></ion-icon>
         </a>
+
     </div>
     
 </div>
