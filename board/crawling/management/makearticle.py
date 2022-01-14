@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import os, django, sys, io, requests, urllib3
 from django.utils import timezone
 
+import schedule, time
+
 sys.path.append('../../')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "board.settings")
 django.setup()
@@ -100,6 +102,13 @@ def crawling_main():
     
 
 crawling_main()
+
+
+
+schedule.every(5).minutes.do(crawling_main)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 
 # main
