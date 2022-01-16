@@ -4,12 +4,11 @@ from django.utils import timezone
 
 import schedule, time
 
-sys.path.append('../../')
+sys.path.append('../')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "board.settings")
 django.setup()
 
 from crawling.models import *
-from django.apps import AppConfig
 
 # -*- coding: utf-8 -*-
 # sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8') 
@@ -66,8 +65,9 @@ def update_article(entertain_name, title, href, img_url):
         update_article.entertain_name = entertain_name
         print("생성!!")
 
-    print(update_article.pub_date)
+    print(timezone.now)
     
+    update_article.pub_date = timezone.now
     
     if update_article.title != title:
         print("업데이트!")
@@ -103,23 +103,14 @@ def crawling_main():
 
 crawling_main()
 
+print("왜 호출됨?")
+
+# schedule.every(1).minutes.do(crawling_main)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
 
 
-schedule.every(5).minutes.do(crawling_main)
-while True:
-    schedule.run_pending()
-    time.sleep(1)
-
-
-# main
-
-# class MyAppConfig(AppConfig):
-#     name = 'my_app'
-#     verbose_name = "My App"
-
-#     def ready(self):
-#         crawling_main()
-#         pass
 
 
 

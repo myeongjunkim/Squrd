@@ -164,7 +164,5 @@ AUTH_USER_MODEL = 'accounts.User'
 
 
 
-CRONJOBS = [
-    ('* * * * *', 'django.core.management.call_command', ['makearticle'], {})
-]
+
 
