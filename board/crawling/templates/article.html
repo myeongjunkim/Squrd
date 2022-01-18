@@ -23,7 +23,6 @@
         
         {% if articles %}
         {% for article  in articles reversed %}
-            {% if forloop.first %}
             <div class="card">
                 <a href="{{article.href}}" target='_blank'>
                     <img src="{{article.img_url}}" style="width:100%; height:100%;" class="card-img-top" alt="...">
@@ -32,10 +31,6 @@
                     </div>    
                 </a>
             </div>
-            
-            {% else %}
-                <div><a class="line-news" href="{{article.href}}" target='_blank'>{{article.title}}</a></div>
-            {% endif %}
             
             
         {% endfor %}

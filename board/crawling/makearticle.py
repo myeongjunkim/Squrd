@@ -39,10 +39,10 @@ ENTERTAIN={
 
 
 def check_url(url, domain):
-    if url[0:1] == "/":
-       url = domain+url
-    elif url[0:2] == "//":
+    if url[0:2] == "//":
        url = "https:" + url
+    elif url[0:1] == "/":
+       url = domain+url
     elif url[0:4] != "http":
         url = domain+"/"+url
     return url
@@ -65,9 +65,10 @@ def update_article(entertain_name, title, href, img_url):
         update_article.entertain_name = entertain_name
         print("생성!!")
 
-    print(timezone.now)
+    print(timezone.now())
     
-    update_article.pub_date = timezone.now
+    update_article.pub_date = timezone.now()
+    update_article.save()
     
     if update_article.title != title:
         print("업데이트!")
@@ -101,9 +102,8 @@ def crawling_main():
 
     
 
-crawling_main()
+# crawling_main()
 
-print("왜 호출됨?")
 
 # schedule.every(1).minutes.do(crawling_main)
 # while True:

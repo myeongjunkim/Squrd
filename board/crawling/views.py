@@ -19,4 +19,3 @@ def update_article(request):
     crawling_main()
     return redirect('article')
 
-print("왜 호출됨?")
