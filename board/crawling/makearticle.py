@@ -3,7 +3,7 @@ import os, django, sys, io, requests, urllib3
 from django.utils import timezone
 import schedule, time
 
-from apscheduler.schedulers.background import BlockingScheduler
+from apscheduler.schedulers.background import BlockingScheduler, BackgroundScheduler
 
 sys.path.append('../')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "board.settings")
@@ -102,8 +102,8 @@ def crawling_main():
         get_source(soup, entertain_name)
 
     
-sched = BlockingScheduler(timezone='Asia/Seoul')
-sched.add_job(crawling_main,'interval', seconds=300, id='test')
+sched = BackgroundScheduler(timezone='Asia/Seoul')
+sched.add_job(crawling_main,'interval', seconds=30, id='test')
 sched.start()
 
 
