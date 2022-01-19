@@ -24,5 +24,6 @@ urlpatterns = [
     path('crawling/', include('crawling.urls')),
     path('main/', include('main.urls')),
     path('accounts/', include('accounts.urls')),
+    path('vote/', include('vote.urls')),
     path('kakao/', include('allauth.urls')),
 ]
