@@ -103,7 +103,7 @@ def crawling_main():
 
     
 sched = BackgroundScheduler(timezone='Asia/Seoul')
-sched.add_job(crawling_main,'interval', seconds=30, id='test')
+sched.add_job(crawling_main,'interval', seconds=300, id='test')
 sched.start()
 
 
