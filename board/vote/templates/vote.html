@@ -15,56 +15,48 @@
         <div class="vote-title">
             투표 시작!!! 과연 승자는?! 투표는 오늘 자정까지 :)
         </div>
-        
-        <div class="vote-contents">
-            <div class="vote-left">
-                <div class="vote-card">
+       
 
+        <form action="#">
+            <div class="vote-contents">
+                <div class="vote-left" onclick="changeBorder()">
+                    <label class="vote-card" id="label1" for="contactChoice1"></label>
+                    <input type="radio" class="contactChoice" id="contactChoice1" name="contact" value="First">
+                    <label for="contactChoice1">카리나</label>
+                </div>
+                <div class="vote-center">
+                    <div>vs</div>
+                </div>
+                <div class="vote-right" onclick="changeBorder()"">
+                    <label class="vote-card" id="label2" for="contactChoice2"></label>
+                    <input type="radio" class="contactChoice" id="contactChoice2" name="contact" value="Second">
+                    <label for="contactChoice2">윈터</label>
                 </div>
             </div>
-            <div class="vote-center">
-                <div>vs</div>
-            </div>
-            <div class="vote-right">
-                <div class="vote-card">
-
+    
+    
+            <div class="vote-contents">
+                <div class="vote-per-wrap">
+                    <div class="vote-per left">
+                        <span>55%</span>
+                    </div>
+                </div>
+                <div class="vote-center">
+                    <span class="vote-cnt">1304</span>
+                    <span>명</span>    
+                </div>
+                <div class="vote-per-wrap">
+                    <div class="vote-per right">
+                        <span>45%</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="vote-name">
-            <div class="vote-left">
-                <span>카리나</span>
+    
+            <div class="vote-contents">
+                <a type="submit" class="button">투표하기</a>
             </div>
-            <div class="vote-center">
-                
-            </div>
-            <div class="vote-right">
-                <span>카리나</span>
-            </div>
-        </div>
-
-
-        <div class="vote-contents">
-            <div class="vote-per-wrap">
-                <div class="vote-per left">
-                    <span>55%</span>
-                </div>
-            </div>
-            <div class="vote-center">
-                <span class="vote-cnt">1304</span>
-                <span>명</span>    
-            </div>
-            <div class="vote-per-wrap">
-                <div class="vote-per right">
-                    <span>45%</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="vote-contents">
-            <a class="button">투표하기</a>
-        </div>
+            
+        </form>
         
     </div>
     
@@ -128,7 +120,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
   
-        <form action="{% url 'vote' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'vote' %}" method="POST" enctype="multipart/form-data">
           {%csrf_token%}
           <div class="modal-body">
             <div class="mb-3">
