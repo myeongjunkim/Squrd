@@ -1,38 +1,32 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
-    
-   
+{% block header %}
 
-</head>
+<link rel="stylesheet" href="{% static 'css/sign.css' %}">
 
- 
+{% endblock %}
 
-  <body width="100%" height="100%">
-    <form method="POST" class="loginForm">
-      {% csrf_token %}
-      <h2>Login</h2>
-      <div class="idForm">
-        <input type="text" class="id" name="input_id" placeholder="ID">
-      </div>
-      <div class="passForm">
-        <input type="password" class="pw" name="input_pw" placeholder="PW">
-      </div>
-      <button type="submit" class="btn">
-        LOG IN
-      </button>
-      <a href="{% url 'kakao-login' %}"><img style="margin-bottom:10px;" src="../static/img/kakao_login_medium_narrow.png" alt="없음"></a>
-      <div class="bottomText">
-        Don't you have ID? <a href="{% url 'signup' %}">Sign up</a>
-      </div>
-    </form>
-  </body>
 
-</html>
+{% block contents %}
+
+<div class="signwrqp">
+  <form method="POST" class="loginForm">
+    {% csrf_token %}
+    <h2>Login</h2>
+    <div class="idForm">
+      <input type="text" class="id" name="input_id" placeholder="ID">
+    </div>
+    <div class="passForm">
+      <input type="password" class="pw" name="input_pw" placeholder="PW">
+    </div>
+    <button type="submit" class="btn">
+      LOG IN
+    </button>
+    <a href="{% url 'kakao-login' %}"><img style="margin-bottom:10px;" src="../static/img/kakao_login_medium_narrow.png" alt="없음"></a>
+    <div class="bottomText">
+      Don't you have ID? <a href="{% url 'signup' %}">Sign up</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

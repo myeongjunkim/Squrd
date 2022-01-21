@@ -1,37 +1,35 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-  
-    
-</head>
+{% block header %}
 
-  <body width="100%" height="100%">
-    <form method="POST" class="loginForm">
-      {% csrf_token %}
-      <h2>Sign up</h2>
-      <div class="idForm">
-        <input type="text" class="id" name="input_name" placeholder="Name">
-      </div>
-      <div class="idForm">
-        <input type="text" class="id" name="input_id" placeholder="Email@example.ex">
-      </div>
-      <div class="passForm">
-        <input type="password" class="pw" name="input_pw" placeholder="password">
-      </div>
-      <div class="passForm">
-        <input type="password" class="pw" name="input_pw_check" placeholder="password check">
-      </div>
-      <button type="submit" class="btn">
-        SIGN UP
-      </button>
-    </form>
-  </body>
+<link rel="stylesheet" href="{% static 'css/sign.css' %}">
 
-</html>
+{% endblock %}
+
+
+{% block contents %}
+<div class="signwrqp">
+  <form method="POST" class="loginForm">
+    {% csrf_token %}
+    <h2>Sign up</h2>
+    <div class="idForm">
+      <input type="text" class="id" name="input_name" placeholder="Name">
+    </div>
+    <div class="idForm">
+      <input type="text" class="id" name="input_id" placeholder="Email@example.ex">
+    </div>
+    <div class="passForm">
+      <input type="password" class="pw" name="input_pw" placeholder="password">
+    </div>
+    <div class="passForm">
+      <input type="password" class="pw" name="input_pw_check" placeholder="password check">
+    </div>
+    <button type="submit" class="btn">
+      SIGN UP
+    </button>
+  </form>
+</div>
+
+
+{% endblock %}
