@@ -11,26 +11,29 @@
 <div class="vote-main">
     <h3>Vote</h3>
     <hr>
+
+    {% for vote_post in vote_posts reversed %}
+
     <div clss="vote-wrap">
         <div class="vote-title">
-            투표 시작!!! 과연 승자는?! 투표는 오늘 자정까지 :)
+            {{vote_post.title}}
         </div>
        
 
         <form action="#">
             <div class="vote-contents">
-                <div class="vote-left" onclick="changeBorder()">
-                    <label class="vote-card" id="label1" for="contactChoice1"></label>
-                    <input type="radio" class="contactChoice" id="contactChoice1" name="contact" value="First">
-                    <label for="contactChoice1">카리나</label>
+                <div class="vote-left" onclick="changeBorder(this)">
+                    <label class="vote-card addAttrLabel" style="background-image: url( {{vote_post.imgfile_1.url}} );"></label>
+                    <input type="radio" class="contactChoice addAttrInput" name="contact" value="First">
+                    <label for="contactChoice1">{{vote_post.img_name_1}}</label>
                 </div>
                 <div class="vote-center">
                     <div>vs</div>
                 </div>
-                <div class="vote-right" onclick="changeBorder()"">
-                    <label class="vote-card" id="label2" for="contactChoice2"></label>
-                    <input type="radio" class="contactChoice" id="contactChoice2" name="contact" value="Second">
-                    <label for="contactChoice2">윈터</label>
+                <div class="vote-right" onclick="changeBorder(this)"">
+                    <label class="vote-card addAttrLabel" style="background-image: url( {{vote_post.imgfile_2.url}} );"></label>
+                    <input type="radio" class="contactChoice addAttrInput" name="contact" value="Second">
+                    <label for="contactChoice2">{{vote_post.img_name_2}}</label>
                 </div>
             </div>
     
@@ -57,9 +60,8 @@
             </div>
             
         </form>
-        
     </div>
-    
+
     <!-- 댓글 -->
     <div class="vote-comment">
         <!-- for -->
@@ -99,6 +101,12 @@
             </div>
         </form>
     </div>
+    <hr>
+    {% endfor %}
+
+
+    
+    
 
 
 </div>
@@ -120,7 +128,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
   
-        <form action="{% url 'vote' %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'create_vote' %}" method="POST" enctype="multipart/form-data">
           {%csrf_token%}
           <div class="modal-body">
             <div class="mb-3">
@@ -136,7 +144,7 @@
                         <label for="exampleFormControlInputName1" class="form-label">Name</label>
                         <input type="text" class="form-control" id="exampleFormControlInputName1" name='name1'>
                     </div>
-                    <input style="font-size: 10px;" type="file" id="img1" onchange="changeImg(event, 'background-img1')">
+                    <input style="font-size: 10px;" type="file" id="img1" name="img1" onchange="changeImg(event, 'background-img1')">
 
                 </div>
                 <div class="vote-center">
@@ -150,7 +158,7 @@
                         <label for="exampleFormControlInputName2" class="form-label">Name</label>
                         <input type="text" class="form-control" id="exampleFormControlInputName2" name='name2'>
                     </div>
-                    <input style="font-size: 10px;" type="file" id="img2" onchange="changeImg(event, 'background-img2')">
+                    <input style="font-size: 10px;" type="file" id="img2" name="img2" onchange="changeImg(event, 'background-img2')">
                 </div>
             </div>
             
