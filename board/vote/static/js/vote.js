@@ -51,13 +51,20 @@ function voteForm() {
         async: false,
         success: function(response) {
             if(response == 'create') {
-                alert("성공");
+                alert("투표 완료!");
+                // 투표 선택 못하도록
+                // 중복 투표 안되도록
+                // 투표율 집계
+            } else if(response == 'overlap') {
+                alert("중복 참여는 안돼요 :(")
             }
         },
         error: function() {
             console.log("error")
         }
     })
+
+    
     
 }
 

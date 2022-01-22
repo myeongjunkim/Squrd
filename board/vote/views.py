@@ -62,6 +62,10 @@ def view_comment(request, id):
 
 def create_participant(request):
     user_ip = get('https://api.ipify.org').text
+    # queryset = Participant.objects.filter(ip = user_ip)
+    # if len(queryset) > 0:
+    #     return HttpResponse('overlap')
+
     print(user_ip)
     data = request.GET
     choice = data['result']
