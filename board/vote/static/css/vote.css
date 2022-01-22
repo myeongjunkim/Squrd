@@ -228,20 +228,6 @@ label.vote-card:active {
     font-size: 14px;
 } */
 
-.vote-comment{
-    padding: 10px;
-    margin-bottom: 80px;
-}
-
-.overlap-comment{
-    display:flex;
-    padding-left:10px;
-}
-
-.overlap-comment > .input-group, .overlap-comment > .write-comment{
-    padding-left:10px;
-    width: 100%;
-}
 
 
 .newBtn {
