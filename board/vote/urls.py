@@ -9,5 +9,6 @@ urlpatterns = [
     path('delete-vote/<str:id>', delete_vote, name="delete_vote"),
     # path('create-comment/<str:id>', create_comment, name="create_comment"),
     path('view-comment/<str:id>', view_comment, name="view_comment"),
+    path('create-participant/', create_participant, name="create_participant"),
     
 ]

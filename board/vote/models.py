@@ -20,7 +20,7 @@ class Participant(models.Model):
         ('2', 'Second'),
     )
 
-    choice = models.CharField(max_length=1, choices=CHOICE)    
+    choice = models.CharField(max_length=10)    
     vote_post = models.ForeignKey(Vote_post, on_delete=models.CASCADE, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
 

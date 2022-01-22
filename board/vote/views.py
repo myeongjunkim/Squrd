@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Vote_post, Comment, Participant
 from django.utils import timezone
+from requests import get
+from django.http.response import HttpResponse
 
 # Create your views here.
 def view_vote(request):
     vote_posts = Vote_post.objects.all()
-    print(vote_posts)
+
+    userIP = get('https://api.ipify.org').text
+    print(userIP)
     return render(request, 'vote.html', {"vote_posts":vote_posts})
 
 
@@ -54,3 +58,23 @@ def view_comment(request, id):
     return render(request, 'comment.html', {'vote_post':vote_post, 'comments_list':comments_list})
 
 
+# ajax api about main vote
+
+def create_participant(request):
+    user_ip = get('https://api.ipify.org').text
+    print(user_ip)
+    data = request.GET
+    choice = data['result']
+    print(choice)
+    vote_post_id = data['votePostId']
+    vote_post = get_object_or_404(Vote_post, pk = vote_post_id)
+    
+    participant = Participant()
+    participant.ip = user_ip
+    participant.choice = choice
+    participant.vote_post = vote_post
+    participant.save()
+    return HttpResponse('create')
+
+
+    

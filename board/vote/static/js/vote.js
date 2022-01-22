@@ -38,3 +38,34 @@ function setAttr(){
 window.onload = () =>{
     setAttr();
 }
+
+function voteForm() {
+    // 일반화 필요, 선택 여부 필요
+    const result = document.querySelector('.result').value;
+    const votePostId = document.querySelector('.vote-post-id').value;
+    $.ajax({
+        url: '../vote/create-participant/',
+        type: "GET",
+        data: {'result': result, "votePostId":votePostId},
+        dataType : "text",
+        async: false,
+        success: function(response) {
+            if(response == 'create') {
+                alert("성공");
+            }
+        },
+        error: function() {
+            console.log("error")
+        }
+    })
+    
+}
+
+
+
+function getRadioValue(event) {
+    // 일반화 필요
+    document.querySelector('.result').value = 
+      event.target.value;
+  }
+

@@ -221,13 +221,6 @@ label.vote-card:active {
 
   /* button end */
 
-/* .overlap-button{
-    width:100%;
-    text-align: right;
-    padding-right:5px;
-    font-size: 14px;
-} */
-
 
 
 .newBtn {
@@ -236,6 +229,10 @@ label.vote-card:active {
     max-width: calc(480px*0.3);
     transform: translateX(0);
     bottom:5%;
-    /* background-color: #87f3f7;;
-    color: #0d6efd; */
+
+}
+
+.commentTag{
+  text-decoration-line: none;
+  color:gray;
 }

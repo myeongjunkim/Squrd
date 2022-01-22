@@ -32,3 +32,8 @@
 .card {
     margin-bottom:20px;
 }
+
+a {
+    text-decoration-line: none;
+    color:black;
+  }

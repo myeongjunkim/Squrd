@@ -45,3 +45,8 @@
     /* background-color: #87f3f7;;
     color: #0d6efd; */
 }
+
+a {
+    text-decoration-line: none;
+    color:black;
+  }

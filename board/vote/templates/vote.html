@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/vote.css' %}">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <script type="text/JavaScript" src="{% static 'js/vote.js' %}"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 {% endblock %}
 
 {% block contents %}
@@ -20,11 +21,11 @@
         </div>
        
 
-        <form action="#">
+        <form class="voteForm" action="#">
             <div class="vote-contents">
                 <div class="vote-left" onclick="changeBorder(this)">
                     <label class="vote-card addAttrLabel" style="background-image: url( {{vote_post.imgfile_1.url}} );"></label>
-                    <input type="radio" class="contactChoice addAttrInput" name="contact" value="First">
+                    <input type="radio" class="contactChoice addAttrInput" onclick="getRadioValue(event)" name="contact" value="First">
                     <label for="contactChoice1">{{vote_post.img_name_1}}</label>
                 </div>
                 <div class="vote-center">
@@ -32,11 +33,15 @@
                 </div>
                 <div class="vote-right" onclick="changeBorder(this)"">
                     <label class="vote-card addAttrLabel" style="background-image: url( {{vote_post.imgfile_2.url}} );"></label>
-                    <input type="radio" class="contactChoice addAttrInput" name="contact" value="Second">
+                    <input type="radio" class="contactChoice addAttrInput" onclick="getRadioValue(event)" name="contact" value="Second">
                     <label for="contactChoice2">{{vote_post.img_name_2}}</label>
                 </div>
+                <!-- js를 통해 보낼 데이터 -->
+                <input class="result" type="hidden">
+                <input class="vote-post-id" type="hidden" value={{vote_post.id}}>
+                <!-- -- -->
             </div>
-    
+            
     
             <div class="vote-contents">
                 <div class="vote-per-wrap">
@@ -56,12 +61,17 @@
             </div>
             
             <div class="vote-contents">
-                <a type="submit" class="button">투표하기</a>
+                <span class="button" onclick="voteForm()">투표하기</span>
             </div>
-            
+            <div style="width:100%; text-align: right;">
+                <a class="commentTag" href="{% url 'view_comment' vote_post.id %}">댓글보기</a>
+            </div>
         </form>
-        <a href="{% url 'delete_vote' vote_post.id %}">삭제</a>
-        <a href="{% url 'view_comment' vote_post.id %}">댓글보기</a>
+        
+        <div class="admin" style="width:100%; text-align: right;">
+            <a href="{% url 'delete_vote' vote_post.id %}">삭제</a>
+        </div>
+        
     </div>
 
     <hr>
@@ -74,7 +84,7 @@
 
 {% block contents2 %}
 
-<button type="button" class="newBtn btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="admin newBtn btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   NEW VOTE
 </button>
 
