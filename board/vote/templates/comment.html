@@ -55,7 +55,7 @@
                     {% csrf_token %}
                     <div class="input-group mb-3">
                         <input type="text" value="답글은 최대 5개까지 가능해요 :(" disabled name="body"autocomplete="off" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">답글 달기</button>
+                        <button class="btn btn-outline-secondary" type="submit" disabled id="button-addon2">답글 달기</button>
                     </div>
                     <input type="text" name="perent_comment_id" value={{comment_dic.comment.id}} style="display:none">
                 </form>
