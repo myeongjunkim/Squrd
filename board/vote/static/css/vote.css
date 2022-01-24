@@ -66,6 +66,7 @@
 .vote-center{
     width:50px;
     margin:0 30px 0 30px;
+    text-align: center;
 }
 
 .vote-center div{
@@ -145,6 +146,7 @@ label.vote-card:active {
     height:20px;
     border-radius: 5px;
     background-color:#87f3f7;
+    overflow: auto;
 }
 
 .vote-per span{

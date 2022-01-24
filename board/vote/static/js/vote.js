@@ -45,7 +45,7 @@ function voteForm(id) {
                 alert("투표 완료!");
                 // 투표 선택 못하도록
                 // 중복 투표 안되도록
-                // 투표율 집계
+                voteTotal(id)
             } else if(response == 'overlap') {
                 alert("중복 참여는 안돼요 :(")
             }
@@ -67,4 +67,53 @@ function getRadioValue(id) {
                 return document.querySelectorAll(inputClass)[i].value;
             }
         }
+}
+
+function voteTotal(id){
+    // 장고한테 쿼리 몇개 나오는지 달라고 요청
+    $.ajax({
+        url: '../vote/vote-total/',
+        type: "GET",
+        data: {"votePostId":id},
+        dataType : "json",
+        async: false,
+        success: function(response) {
+            console.log(response)
+            changeTotal(response, id)
+        },
+        error: function() {
+            console.log("Total func error")
+        }
+    })
+}
+
+function changeTotal(response, id){
+    const voteFormName = '.voteForm'+id;
+    const voteFormTag = document.querySelector(voteFormName);
+    const voteTotalDiv = voteFormTag.querySelector('.vote-total');
+    
+    const leftTotalDiv = voteTotalDiv.querySelector('.left');
+    const rightTotalDiv = voteTotalDiv.querySelector('.right');
+    const CenterTotalDiv = voteTotalDiv.querySelector('.vote-center');
+
+    leftTotalDiv.style.width = String(response['first']['per']) +'%';
+    rightTotalDiv.style.width = String(response['second']['per']) +'%';
+
+    leftTotalDiv.querySelector('span').innerText = response['first']['cnt'] + '명 (' + response['first']['per'] +'%)';
+    rightTotalDiv.querySelector('span').innerText = response['second']['cnt'] + '명 (' + response['second']['per'] +'%)';
+    CenterTotalDiv.querySelector('span').innerText = response['total'] + '명';
+
+
+}
+
+
+
+
+window.onload = () => {
+    const inputs = document.querySelectorAll(".votePostId")
+    console.log(inputs)
+    for (var i=0; i<inputs.length; i++) {
+        voteTotal(inputs[i].value);       
+
+    }
 }
