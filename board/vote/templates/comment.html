@@ -16,15 +16,15 @@
             <span class="btn btn-outline-secondary" id="button-addon1">{{comment_dic.comment.user.name}}</span>
             <span class="form-control" aria-label="Example text with button addon" aria-describedby="button-addon1">{{comment_dic.comment.content}}</span>
             {% if comment_dic.recomments|length == 0 %}
-            <div class="recomment-btn" onclick="viewRecomment(this)"><span class="comment-open">답글 달기</span><span class="comment-close">답글 접기</span></div>
+            <div class="recomment-btn obj{{comment_dic.comment.id}}" onclick="viewRecomment('{{comment_dic.comment.id}}')"><span class="comment-open">답글 달기</span><span class="comment-close">답글 접기</span></div>
             {% else %}
-            <div class="recomment-btn" onclick="viewRecomment(this)"><span class="comment-open">답글 {{comment_dic.recomments|length}}개 보기</span><span class="comment-close">답글 접기</span></div>
+            <div class="recomment-btn obj{{comment_dic.comment.id}}" onclick="viewRecomment('{{comment_dic.comment.id}}')"><span class="comment-open">답글 {{comment_dic.recomments|length}}개 보기</span><span class="comment-close">답글 접기</span></div>
             {% endif %}
         </div>
         
 
         <!-- 답글 목록 -->
-        <div class="recomment-wrap" style="display:none;">
+        <div class="recomment-wrap{{comment_dic.comment.id}}" style="display:none;">
             {% for recomment in comment_dic.recomments%}
             <div class="overlap-comment">
                 <ion-icon name="return-down-forward-outline"></ion-icon>

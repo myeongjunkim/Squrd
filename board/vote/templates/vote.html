@@ -21,25 +21,22 @@
         </div>
        
 
-        <form class="voteForm" action="#">
+        <form class="voteForm{{vote_post.id}}" action="#">
             <div class="vote-contents">
-                <div class="vote-left" onclick="changeBorder(this)">
-                    <label class="vote-card addAttrLabel" style="background-image: url( {{vote_post.imgfile_1.url}} );"></label>
-                    <input type="radio" class="contactChoice addAttrInput" onclick="getRadioValue(event)" name="contact" value="First">
-                    <label for="contactChoice1">{{vote_post.img_name_1}}</label>
+                <div class="vote-left" onclick="changeBorder('{{vote_post.id}}')">
+                    <label class="vote-card" for="contactChoice{{vote_post.id}}-1" style="background-image: url( {{vote_post.imgfile_1.url}} );"></label>
+                    <input type="radio" class="contactChoice{{vote_post.id}}" id="contactChoice{{vote_post.id}}-1" name="contact" value="First">
+                    <label for="contactChoice{{vote_post.id}}-1">{{vote_post.img_name_1}}</label>
                 </div>
                 <div class="vote-center">
                     <div>vs</div>
                 </div>
-                <div class="vote-right" onclick="changeBorder(this)"">
-                    <label class="vote-card addAttrLabel" style="background-image: url( {{vote_post.imgfile_2.url}} );"></label>
-                    <input type="radio" class="contactChoice addAttrInput" onclick="getRadioValue(event)" name="contact" value="Second">
-                    <label for="contactChoice2">{{vote_post.img_name_2}}</label>
+                <div class="vote-right" onclick="changeBorder('{{vote_post.id}}')">
+                    <label class="vote-card" for="contactChoice{{vote_post.id}}-2" style="background-image: url( {{vote_post.imgfile_2.url}} );"></label>
+                    <input type="radio" class="contactChoice{{vote_post.id}}" id="contactChoice{{vote_post.id}}-2" name="contact" value="Second">
+                    <label for="contactChoice{{vote_post.id}}-2">{{vote_post.img_name_2}}</label>
                 </div>
-                <!-- js를 통해 보낼 데이터 -->
-                <input class="result" type="hidden">
-                <input class="vote-post-id" type="hidden" value={{vote_post.id}}>
-                <!-- -- -->
+                
             </div>
             
     
@@ -61,7 +58,7 @@
             </div>
             
             <div class="vote-contents">
-                <span class="button" onclick="voteForm()">투표하기</span>
+                <span class="button" onclick="voteForm('{{vote_post.id}}')">투표하기</span>
             </div>
             <div style="width:100%; text-align: right;">
                 <a class="commentTag" href="{% url 'view_comment' vote_post.id %}">댓글보기</a>

@@ -10,43 +10,34 @@ function changeImg(event, backgroundImg) {
     reader.readAsDataURL(event.target.files[0]);
 };
 
-function changeBorder(obj){
-    const contentsDiv = obj.parentElement;
-    const input_1 = contentsDiv.children[0].children[1];
-    const input_2 = contentsDiv.children[2].children[1];
-
+function changeBorder(id){
+    const voteFormName = '.voteForm'+id;
+    const voteFormTag = document.querySelector(voteFormName);
+    
+    const input_1 = voteFormTag.querySelector('#contactChoice'+id+'-1')
+    const input_2 = voteFormTag.querySelector('#contactChoice'+id+'-2')
+    
     if (input_1.checked){
-        contentsDiv.children[0].children[0].style.border="3px solid yellow";
-        contentsDiv.children[2].children[0].style.border="0px solid yellow";
+        voteFormTag.querySelector('.vote-left .vote-card').style.border="3px solid yellow";
+        voteFormTag.querySelector('.vote-right .vote-card').style.border="0px solid yellow";
     }
     else if(input_2.checked){
-        contentsDiv.children[2].children[0].style.border="3px solid yellow";
-        contentsDiv.children[0].children[0].style.border="0px solid yellow";
-   
+        voteFormTag.querySelector('.vote-right .vote-card').style.border="3px solid yellow";
+        voteFormTag.querySelector('.vote-left .vote-card').style.border="0px solid yellow";
     };
 }
 
-function setAttr(){
-    const labelTag = document.querySelectorAll('.addAttrLabel');
-    const inputTag = document.querySelectorAll('.addAttrInput');
-    for(var i=0;i<labelTag.length;i++){
-        labelTag[i].setAttribute( 'for', 'contactChoice'+i )
-        inputTag[i].setAttribute( 'id', 'contactChoice'+i )
+
+function voteForm(id) {
+    const result = getRadioValue(id)
+    if (!result){
+        return alert("사진을 눌러 선택해주세요!");
     }
-}
-
-window.onload = () =>{
-    setAttr();
-}
-
-function voteForm() {
-    // 일반화 필요, 선택 여부 필요
-    const result = document.querySelector('.result').value;
-    const votePostId = document.querySelector('.vote-post-id').value;
+    console.log(result);
     $.ajax({
         url: '../vote/create-participant/',
         type: "GET",
-        data: {'result': result, "votePostId":votePostId},
+        data: {'result': result, "votePostId":id},
         dataType : "text",
         async: false,
         success: function(response) {
@@ -68,11 +59,12 @@ function voteForm() {
     
 }
 
-
-
-function getRadioValue(event) {
-    // 일반화 필요
-    document.querySelector('.result').value = 
-      event.target.value;
-  }
-
+function getRadioValue(id) {
+    const inputClass = '.contactChoice'+id;
+    var obj_length = document.querySelectorAll(inputClass).length;
+    for (var i=0; i<obj_length; i++) {
+        if (document.querySelectorAll(inputClass)[i].checked == true) {
+                return document.querySelectorAll(inputClass)[i].value;
+            }
+        }
+}
