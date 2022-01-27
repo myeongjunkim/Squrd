@@ -27,7 +27,7 @@ def create_vote(request):
 def delete_vote(request,id):
      delete_vote_post = Vote_post.objects.get(id= id)
      delete_vote_post.delete()
-     return redirect('vote')
+     return redirect('view_vote')
 
 
 def view_comment(request, id):
