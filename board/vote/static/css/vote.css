@@ -146,7 +146,7 @@ label.vote-card:active {
     height:20px;
     border-radius: 5px;
     background-color:#87f3f7;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 .vote-per span{
