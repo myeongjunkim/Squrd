@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
-
 class Content(models.Model):
     title = models.CharField(max_length=200)
     writer = models.CharField(max_length=100)
@@ -17,7 +16,6 @@ class Content(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Content, on_delete=models.CASCADE, null=True)
-    # writer = models.CharField(max_length=20, null=True)
     body = models.TextField()
     date = models.DateTimeField(default=timezone.now)
 

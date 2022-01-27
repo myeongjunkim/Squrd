@@ -2,7 +2,10 @@
 {% load static %}
 
 {% block header %}
+<link rel="stylesheet" href="{% static 'css/roulette.css' %}">
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
+<script type="text/JavaScript" src="{% static 'js/roulette.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 {% endblock %}
 
 {% block contents %}
@@ -76,5 +79,49 @@
 
     {% endif %}
 
+    <div class="gameImg-wrap">
+        <img class="gameImg" src="../static/img/gambler.png" alt="not found" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    </div>
+
 </div>
 {% endblock %}
+
+{% block contents2 %}
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" style="overflow: auto;">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">룰렛 게임</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="machine-main">
+            <div class="machine">
+
+                <div class="slot 1"><span class="shuffle resultText" onclick="shuffle(this)">클릭!</span></div>
+                <span class="op 1 resultText">?</span>
+                <div class="slot 2"><span class="shuffle resultText" onclick="shuffle(this)">클릭!</span></div>
+                <span class="op 2 resultText">?</span>
+                <div class="slot 3"><span class="shuffle resultText" onclick="shuffle(this)">클릭!</span></div>
+                
+                <div class="lever-wrap">
+                    <div class="lever Up">
+                    </div>
+                </div>
+                    
+            </div>
+            
+            <button class="machine-result-btn" onclick="getResult()">결과 보기</button>
+            <div class="machine-result">
+                <span>최종 스코어는?</span>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,7 +1,8 @@
 from pathlib import Path
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
+from django.http.response import HttpResponse, JsonResponse
 # 얘가 디비에서 조회해서 있으면 가져오는 기특한 애
 from django.contrib.auth import authenticate, login, logout
 from .models import User
@@ -44,24 +45,27 @@ def signup(request):
         input_id = request.POST['input_id']
         input_pw = request.POST['input_pw']
         input_pw_check = request.POST['input_pw_check']
-        if input_name != "" and input_id != "" and input_pw !="":
-            if input_pw == input_pw_check:    
-                user = User.objects.create_user(input_id, input_id, input_pw)
-                user.name = input_name
-                user.save()
-                print("회원정보 디비 저장")
-                return redirect("signin")
+        try:
+            user = get_object_or_404(User, username = input_id)
+        except User.DoesNotExist:
+            if input_name != "" and input_id != "" and input_pw !="":
+                if input_pw == input_pw_check:    
+                    user = User.objects.create_user(input_id, input_id, input_pw)
+                    user.name = input_name
+                    user.save()
+                    print("회원정보 디비 저장")
+                    return redirect("signin")
+                else:
+                    return redirect("signup")
             else:
-                return redirect("signup")
-        else:
-            redirect("signup")
-
+                redirect("signup")
+        return HttpResponse('overlap')
     return render(request, "signup.html")
+
 
 def signout(request):
     logout(request)
     return redirect('signin')
-
 
 # kakao login
 

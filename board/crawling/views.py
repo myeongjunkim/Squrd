@@ -19,3 +19,4 @@ def update_article(request):
     crawling_main()
     return redirect('article')
 
+
