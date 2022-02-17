@@ -3,42 +3,50 @@
 
 {% block header %}
 <link rel="stylesheet" href="{% static 'css/instagram.css' %}">
+<script type="text/JavaScript" src="{% static 'js/instagram.js' %}"></script>
+
 {% endblock %}
 
 {% block contents %}
 
 <div class="contents-wrap">
+    {% for post in posts reversed %}
     <section class="section__cards">
         <div class="card-header">
             <img src="{% static 'img/airplane.png' %}" alt="">
-            <span>name</span>
+            <span>{{post.user.name}}</span>
         </div>
         <div class="card-img">
-            <img src="{% static 'img/airplane.png' %}" alt="">
+            <img src="{{post.main_img.url}}" alt="">
         </div>
         <div class="card-textbody">
-            <span>name</span>
-            <div>Lorem ipsum dolor sit amet conerum unde nisi esse itaque quo. Architecto eveniet explicabo quis.</div>
+            <span>{{post.user.name}}</span>
+            <div>{{post.textbody}}</div>
             <a href="">댓글보기</a>
         </div>
     </section>
-    <section class="contents-wrap__cards">
-        <div class="card-header">
-            <img src="{% static 'img/airplane.png' %}" alt="">
-            <span>name</span>
-        </div>
-        <div class="card-img">
-            <img src="{% static 'img/airplane.png' %}" alt="">
-        </div>
-        <div class="card-textbody">
-            <span>name</span>
-            <p>Lorem ipsum dolor sit amet conerum unde nisi esse itaque quo. Architecto eveniet explicabo quis.</p>
-            <a href="">댓글보기</a>
-        </div>
-    </section>
+    {% endfor %}
 </div>
 
+{% endblock %}
 
 
+{% block contents2 %}
+    <button class="btn-open-popup newPostButton "><ion-icon name="add-circle-outline"></ion-icon><span>글쓰기</span></button>
+    
+    <div class="modal-newPost">
+        <div class="modal_body">
+            <form class="modal_form" action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="post_img">
+                    <img src="{% static 'img/aboutus_plus.png' %}" id="img_plus" alt="X">
+                </label>
+                <input id="post_img" type="file" onchange="changeImg(event,'img_plus')" name="post_image" />
+                <textarea id="" cols="30" rows="5" placeholder="About U" name="post_textbody"></textarea>
+                <button class="newPostButton" type="submit"><span>글쓰기<span><img src="" alt=""></button>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}
+

@@ -6,5 +6,7 @@ from instagram.views import *
 
 urlpatterns = [
     path('', view_feed, name="feed"),
+    path('create-post', create_post, name="create_post"),
+
     
 ]
