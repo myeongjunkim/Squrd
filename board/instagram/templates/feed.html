@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/instagram.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="contents-wrap">
+    <section class="section__cards">
+        <div class="card-header">
+            <img src="{% static 'img/airplane.png' %}" alt="">
+            <span>name</span>
+        </div>
+        <div class="card-img">
+            <img src="{% static 'img/airplane.png' %}" alt="">
+        </div>
+        <div class="card-textbody">
+            <span>name</span>
+            <div>Lorem ipsum dolor sit amet conerum unde nisi esse itaque quo. Architecto eveniet explicabo quis.</div>
+            <a href="">댓글보기</a>
+        </div>
+    </section>
+    <section class="contents-wrap__cards">
+        <div class="card-header">
+            <img src="{% static 'img/airplane.png' %}" alt="">
+            <span>name</span>
+        </div>
+        <div class="card-img">
+            <img src="{% static 'img/airplane.png' %}" alt="">
+        </div>
+        <div class="card-textbody">
+            <span>name</span>
+            <p>Lorem ipsum dolor sit amet conerum unde nisi esse itaque quo. Architecto eveniet explicabo quis.</p>
+            <a href="">댓글보기</a>
+        </div>
+    </section>
+</div>
+
+
+
+
+{% endblock %}

@@ -28,4 +28,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('vote/', include('vote.urls')),
     path('kakao/', include('allauth.urls')),
+    path('instagram/', include('instagram.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

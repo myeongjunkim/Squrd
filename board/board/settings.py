@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'accounts',
     'crawling',
     'vote',
-    'instagram'
+    'instagram',
 
     'django_crontab',
     'django.contrib.sites',

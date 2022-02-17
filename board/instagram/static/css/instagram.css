@@ -1,0 +1,40 @@
+.contents-wrap{
+    padding-top:120px;
+    height:auto;
+
+}
+
+.section__cards{
+    width:100%;
+    padding-bottom:20px;
+    border-bottom: 1px solid black;
+}
+
+.card-header{
+    width:100%;
+    padding:10px;
+    line-height: 30px;
+}
+
+.card-header > img{
+    border-radius: 50%;
+    width:20px;
+    height:20px;
+    margin: 5px;
+}
+
+.card-img > img{
+    width:100%;
+}
+
+.card-img > img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+
+.card-textbody{
+    width:100%;
+    padding:10px;
+}
