@@ -107,13 +107,7 @@ sched.add_job(crawling_main,'interval', seconds=300, id='test')
 sched.start()
 
 
-# crawling_main()
 
-
-# schedule.every(1).minutes.do(crawling_main)
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
 
 
 

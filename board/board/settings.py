@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'accounts',
     'crawling',
     'vote',
+    'instagram'
 
     'django_crontab',
     'django.contrib.sites',
@@ -151,6 +152,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'accounts', 'static'),
     os.path.join(BASE_DIR, 'crawling', 'static'),
     os.path.join(BASE_DIR, 'vote', 'static'),
+    os.path.join(BASE_DIR, 'instagram', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

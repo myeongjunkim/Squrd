@@ -23,13 +23,9 @@
     margin:10px 5px 10px 5px;
 }
 
-.card-text {
-    transition: 1s;
-
-}
-
-.card-text:hover {
-    transform: translateY(-70px);
+.card{
+    font-size: 1.2rem;
+    
 }
 
 .cards .card a{
