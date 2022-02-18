@@ -21,6 +21,7 @@ def view_mypage(request):
 def update_mypage(request):
     if request.method == "POST":
         user = get_object_or_404(User, id = request.user.id)
+
         user.profile_img = request.FILES['profile_img']
         user.name = request.POST['user_name']
         user.email = request.POST['user_email']
@@ -30,7 +31,8 @@ def update_mypage(request):
 def create_post(request):
     if request.method == "POST":
         new_post = Post()
-        new_post.main_img = request.FILES['post_image']
+        if request.FILES:
+            new_post.main_img = request.FILES['post_image']
         new_post.textbody = request.POST['post_textbody']
         new_post.user = request.user
         user = get_object_or_404(User, id = request.user.id)
