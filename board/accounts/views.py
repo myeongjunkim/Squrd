@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http.response import HttpResponse, JsonResponse
 # 얘가 디비에서 조회해서 있으면 가져오는 기특한 애
 from django.contrib.auth import authenticate, login, logout
-from .models import User
+from .models import User, Mypage
 import json, os, requests
 
 
@@ -24,7 +24,7 @@ def get_secret(setting, secrets=secrets):
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    return render(request, 'index.html')
 
 def signin(request):
     if request.method == "POST":
@@ -33,7 +33,7 @@ def signin(request):
         user = authenticate(username=input_id, password=input_pw)
         if user is not None:
             login(request, user)
-            return render(request, "index.html")
+            return redirect('index')
         else:
             print("로그인 실패")
     return render(request, "signin.html")
@@ -53,6 +53,8 @@ def signup(request):
                     user = User.objects.create_user(input_id, input_id, input_pw)
                     user.name = input_name
                     user.save()
+                    mypage = Mypage()
+                    mypage.user = user
                     print("회원정보 디비 저장")
                     return redirect("signin")
                 else:

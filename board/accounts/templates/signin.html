@@ -23,7 +23,7 @@
     <button type="submit" class="btn">
       LOG IN
     </button>
-    <a href="{% url 'kakao-login' %}"><img style="margin-bottom:10px;" src="../static/img/kakao_login_medium_narrow.png" alt="없음"></a>
+    <a href="{% url 'kakao-login' %}"><img style="margin-bottom:10px;" src="{% static 'img/kakao_login_medium_narrow.png' %}" alt="카카오"></a>
     <div class="bottomText">
       Don't you have ID? <a href="{% url 'signup' %}">Sign up</a>
     </div>
