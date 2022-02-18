@@ -1,5 +1,5 @@
 .contents-wrap{
-    padding:120px 30px 30px 30px;
+    padding:120px 20px 20px 20px;
     height:auto;
 
 }
@@ -40,7 +40,7 @@
 }
 
 .content-info__img{
-    width:30%;
+    width:20%;
     text-align: center;
 }
 #img_plus{
@@ -57,12 +57,16 @@
     justify-content:center;
     align-items: flex-end;
     flex-direction: column;
-    width:70%;
+    width:80%;
 
 }
 
+.info-text__input-div{
+    width: 80%;;
+}
+
 .content-info__text input{
-    width:70%;
+    width:65%;
     margin-bottom:10px;
     border-top: 0px;
     border-left: 0px;

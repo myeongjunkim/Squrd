@@ -121,6 +121,8 @@ def kakao_login_callback(request):
         user.set_unusable_password()
         user.save()
     login(request, user)
+    user.point += 5
+    user.save()
     return redirect(reverse("index"))
 
     
