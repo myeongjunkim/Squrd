@@ -7,11 +7,16 @@ from accounts.models import User
 
 # Create your views here.
 def view_feed(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     posts = Post.objects.all()
     return render(request, 'feed.html', {"posts":posts})
 
 def view_mypage(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     return render(request, 'mypage.html')
+    
 
 def update_mypage(request):
     if request.method == "POST":
@@ -35,6 +40,8 @@ def create_post(request):
         return redirect('feed')
 
 def insta_comment(request, id):
+    if not request.user.is_authenticated:
+        return redirect('signin')
     post = get_object_or_404(Post, pk = id)
     # 댓글 요청
     if request.method == "POST":
