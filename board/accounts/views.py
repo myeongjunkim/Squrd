@@ -45,9 +45,13 @@ def signup(request):
         input_id = request.POST['input_id']
         input_pw = request.POST['input_pw']
         input_pw_check = request.POST['input_pw_check']
-        try:
-            user = get_object_or_404(User, username = input_id)
-        except User.DoesNotExist:
+        if User.objects.filter(username=input_id).exists():
+            return HttpResponse('overlap')
+
+        # try:
+        #     user = get_object_or_404(User, username = input_id)
+        # except User.DoesNotExist:
+        else:
             if input_name != "" and input_id != "" and input_pw !="":
                 if input_pw == input_pw_check:    
                     user = User.objects.create_user(input_id, input_id, input_pw)
@@ -55,13 +59,14 @@ def signup(request):
                     user.save()
                     mypage = Mypage()
                     mypage.user = user
+                    mypage.save()
                     print("회원정보 디비 저장")
                     return redirect("signin")
                 else:
                     return redirect("signup")
             else:
                 redirect("signup")
-        return HttpResponse('overlap')
+        # return HttpResponse('overlap')
     return render(request, "signup.html")
 
 
