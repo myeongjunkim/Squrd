@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http.response import HttpResponse, JsonResponse
 # 얘가 디비에서 조회해서 있으면 가져오는 기특한 애
 from django.contrib.auth import authenticate, login, logout
-from .models import User, Mypage
+from .models import User
 import json, os, requests
 
 
@@ -33,6 +33,14 @@ def signin(request):
         user = authenticate(username=input_id, password=input_pw)
         if user is not None:
             login(request, user)
+
+            user.point += 5
+            user.save()
+
+            # mypage = get_object_or_404(Mypage, user = user)
+            # mypage.point +=5
+            # mypage.save()
+
             return redirect('index')
         else:
             print("로그인 실패")
@@ -57,9 +65,6 @@ def signup(request):
                     user = User.objects.create_user(input_id, input_id, input_pw)
                     user.name = input_name
                     user.save()
-                    mypage = Mypage()
-                    mypage.user = user
-                    mypage.save()
                     print("회원정보 디비 저장")
                     return redirect("signin")
                 else:

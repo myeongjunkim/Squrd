@@ -13,7 +13,7 @@
     {% for post in posts reversed %}
     <section class="section__cards">
         <div class="card-header">
-            <img src="{% static 'img/airplane.png' %}" alt="">
+            <img src="{{post.user.profile_img.url}}" alt="">
             <span>{{post.user.name}}</span>
         </div>
         <div class="card-img">
