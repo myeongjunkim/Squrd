@@ -22,6 +22,10 @@ window.onload = () =>{
         }
     });
 
+
+
+
+
     const list = document.querySelectorAll('.list');
       list.forEach((item) => 
       item.classList.remove('active'));

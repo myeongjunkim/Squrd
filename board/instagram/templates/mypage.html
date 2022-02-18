@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+<script type="text/JavaScript" src="{% static 'js/instagram.js' %}"></script>
+<script>
+    window.onload = () => {
+      const list = document.querySelectorAll('.list');
+      list.forEach((item) => 
+      item.classList.remove('active'));
+      list[5].classList.add('active');
+    }
+</script>
+{% endblock %}
+
+{% block contents %}
+<div class="contents-wrap">
+    <section class="contents-body">
+        <h3>mypage</h3>
+        <div class="content-star">
+            <img src="{% static 'img/star.png' %}" alt="">
+            <div>{{user.name}} 님의 별포인트는 총 <span class="user-point">{{user.point}}</span> 입니다!</div>
+        </div>
+        <form class="content-info" action="{% url 'update_mypage' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="content-info__img">
+                <label for="profile_img">
+                    <img src="{{user.profile_img.url}}" id="img_plus" alt="X">
+                    <div>프로필 사진</div>
+                </label>
+                <input id="profile_img" type="file" onchange="changeImg(event,'img_plus')" name="profile_img" />
+            </div>
+            
+            
+            <div class="content-info__text">
+                <div>
+                    <span>Name : </span><input type="text" value="{{user.name}}" name="user_name">
+                </div>
+                <div>
+                    <span>Email : </span><input type="text" value="{{user.email}}" name="user_email">
+                </div>
+                <div class="info-text__comment">개인정보를 클릭하여 수정하고 업데이트 해주세요!</div>
+                <button class="newPostButton" type="submit"><span>Update<span></button>
+
+            </div>
+        </form>
+    </section>
+</div>
+
+<!-- 
+<form class="modal_form" action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="post_img">
+        <img src="{% static 'img/aboutus_plus.png' %}" id="img_plus" alt="X">
+    </label>
+    <input id="post_img" type="file" onchange="changeImg(event,'img_plus')" name="post_image" />
+    <textarea id="" cols="30" rows="5" placeholder="About U" name="post_textbody"></textarea>
+    <button class="newPostButton" type="submit"><span>글쓰기<span><img src="" alt=""></button>
+</form> -->
+
+{% endblock %}

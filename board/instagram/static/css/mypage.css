@@ -1,0 +1,98 @@
+.contents-wrap{
+    padding:120px 30px 30px 30px;
+    height:auto;
+
+}
+
+.contents-body{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contents-body > h3 {
+    align-self: flex-start;
+    margin:20px;
+}
+
+.content-star{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content-star > img {
+    width:150px;
+    margin-bottom:20px;
+}
+
+.user-point{
+    font-size: 35px;
+    font-weight: 700;
+    color: red;
+}
+
+.content-info{
+    width:100%;
+    padding:20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-info__img{
+    width:30%;
+    text-align: center;
+}
+#img_plus{
+    width:100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#profile_img{
+    font-size:12px;
+}
+
+.content-info__text{
+    display:flex;
+    justify-content:center;
+    align-items: flex-end;
+    flex-direction: column;
+    width:70%;
+
+}
+
+.content-info__text input{
+    width:70%;
+    margin-bottom:10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+
+    margin-left: 10px;
+
+}
+
+
+.info-text__comment{
+    padding:10px;
+    font-size: 16px;
+    color:gray;
+}
+
+.newPostButton{
+    align-items: ;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width:80px;
+    height:30px;
+    bottom :20px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid black; 
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
+}

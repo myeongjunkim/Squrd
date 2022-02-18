@@ -1,0 +1,45 @@
+.comment-main{
+    margin-top:140px;
+    width:90%;
+    margin-left:5%;
+    height:auto;
+    background-color:white;
+    overflow: auto;
+}
+
+.vote-wrap{
+    display:flex;
+    flex-direction:column;
+    padding:0 20px 0 20px;
+    margin:10px;
+}
+
+vote-comment{
+    padding: 10px;
+    margin-bottom: 80px;
+}
+
+.overlap-comment{
+    display:flex;
+    padding-left:10px;
+    margin-bottom:10px;
+}
+
+.overlap-comment > .input-group, .overlap-comment > .write-comment{
+    padding-left:10px;
+    width: 100%;
+}
+
+.recomment-btn{
+    font-size:14px;
+    width:100%;
+    text-align:right;
+    color:gray;
+    cursor: pointer;
+}
+
+.comment-close{
+    display:none;
+}
+
+

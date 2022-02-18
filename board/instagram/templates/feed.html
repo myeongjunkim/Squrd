@@ -22,7 +22,7 @@
         <div class="card-textbody">
             <span>{{post.user.name}}</span>
             <div>{{post.textbody}}</div>
-            <a href="">댓글보기</a>
+            <a class="commentTag" href="{% url 'insta_comment' post.id %}">댓글보기</a>
         </div>
     </section>
     {% endfor %}

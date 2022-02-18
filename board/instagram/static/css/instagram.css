@@ -47,7 +47,7 @@
 /* modal */
 
 .modal-newPost { 
-    position: absolute; 
+    position: fixed; 
     top: 0; 
     left: 0; 
     width: 100%; 
@@ -61,7 +61,7 @@
 .modal-newPost.show { display: block; }
 
 .modal_body { 
-    position: absolute; 
+    position: fixed; 
     max-width: 400px;
     top: 50%; 
     left: 50%; 
