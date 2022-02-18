@@ -56,9 +56,6 @@ def signup(request):
         if User.objects.filter(username=input_id).exists():
             return HttpResponse('overlap')
 
-        # try:
-        #     user = get_object_or_404(User, username = input_id)
-        # except User.DoesNotExist:
         else:
             if input_name != "" and input_id != "" and input_pw !="":
                 if input_pw == input_pw_check:    
@@ -71,7 +68,6 @@ def signup(request):
                     return redirect("signup")
             else:
                 redirect("signup")
-        # return HttpResponse('overlap')
     return render(request, "signup.html")
 
 
@@ -114,10 +110,9 @@ def kakao_login_callback(request):
     print(profile_json, email)
     properties = profile_json.get("properties")
     nickname = properties.get("nickname")
-    try:
-        user = User.objects.get(username=email)
-        
-    except User.DoesNotExist:
+    if User.objects.filter(username=email).exists():
+        user = get_object_or_404(User,username=email)
+    else:
         user = User.objects.create(
             email=email,
             username=email,
