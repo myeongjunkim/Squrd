@@ -156,9 +156,9 @@ body{
 .navigation ul li:nth-child(5).active ~ .indicator{
   transform: translateX(calc(70px * 4));
 }
-.navigation ul li:nth-child(6).active ~ .indicator{
+/* .navigation ul li:nth-child(6).active ~ .indicator{
   transform: translateX(calc(70px * 5));
-}
+} */
 
 .navigation ul li:nth-child(1):hover ~ .indicator{
   transform: translateX(calc(70px * 0));
@@ -175,7 +175,7 @@ body{
 .navigation ul li:nth-child(5):hover ~ .indicator{
   transform: translateX(calc(70px * 4));
 }
-.navigation ul li:nth-child(6):hover ~ .indicator{
+/* .navigation ul li:nth-child(6):hover ~ .indicator{
   transform: translateX(calc(70px * 5));
-}
+} */
 

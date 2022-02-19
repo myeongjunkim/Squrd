@@ -21,8 +21,8 @@ def view_mypage(request):
 def update_mypage(request):
     if request.method == "POST":
         user = get_object_or_404(User, id = request.user.id)
-
-        user.profile_img = request.FILES['profile_img']
+        if request.FILES:
+            user.profile_img = request.FILES['profile_img']
         user.name = request.POST['user_name']
         user.email = request.POST['user_email']
         user.save()
