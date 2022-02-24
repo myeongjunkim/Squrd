@@ -6,6 +6,15 @@
     background-color: white;
     overflow: auto;
 }
+
+.div-message{
+    width:100%;
+    padding:10px;
+    text-align: center;
+    background-color: #F0FFC2;
+    font-size: 16px;
+  }
+  
 .bordTitle{
     font-size: 1.5rem;
     font-weight: bold;

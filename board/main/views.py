@@ -21,9 +21,10 @@ def create(request):
     new_content.title = request.POST['title']
     new_content.writer = request.POST['writer']
     new_content.body = request.POST['body']
-    # new_content.pw = request.POST['password']
     new_content.pub_date = timezone.now()
     new_content.save()
+
+
     return redirect('main')
 
 def delete(request, id):

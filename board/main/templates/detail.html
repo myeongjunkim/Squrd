@@ -26,6 +26,11 @@
 
 {% block contents %}
 <div class="detail">
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="div-message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
     <h3>Detail page</h3>
     <br>
     <div class="input-group mb-3">

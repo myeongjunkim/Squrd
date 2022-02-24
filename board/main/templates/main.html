@@ -25,9 +25,13 @@
 <!-- Body -->
 {% block contents %}
 <div class="contents">
+  {% if messages %}
+        {% for message in messages  %}
+            <div class="div-message">{{message}}</div>
+        {% endfor %}
+  {% endif %}
   
   <div class="bordTitle">Notice</div>
-    
   <div class="table-container">
     <table class="table">
       <thead>
