@@ -49,6 +49,7 @@
         </div>
         <div class="mail-wrap">
             <hr>
+            {% if mails %}
             {% for mail in mails reversed%}
             <a href="{% url 'detail_mail' mail.id %}" class="mail-card">
                 <div class="mail-card__sender">
@@ -59,6 +60,8 @@
                 <hr>
             </a>
             {% endfor %}
+            {% endif %}
+
         </div>
         
     </section>
