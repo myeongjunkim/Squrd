@@ -20,8 +20,7 @@
         {% for message in messages  %}
             <div class="div-message">{{message}}</div>
         {% endfor %}
-        {% endif %}
-    {% for post in posts reversed %}
+    {% endif %}
     <section class="contents-body">
         <div class="contents-body__back" onClick="javascript:history.go(-1);"><ion-icon name="arrow-back-outline"></ion-icon></div>
 
@@ -34,7 +33,6 @@
             <hr>
             <div class="content-mail__pub_date">at {{mail.pub_date}}</div>
         </div>
-        
         
     </section>
 </div>
