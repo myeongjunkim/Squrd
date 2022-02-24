@@ -1,0 +1,126 @@
+.contents-wrap{
+    padding:120px 20px 20px 20px;
+    height:auto;
+
+}
+
+.contents-body{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content-title{
+    display: flex;
+    justify-content: space-between;
+    margin:20px;
+}
+
+
+.content-title > span{
+    font-size: 30px;
+    color:black;
+    font-weight: 700;
+}
+
+.mail-wrap{
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+.mail-card{
+    display:block;
+    text-decoration-line: none;
+    color:black;
+    margin-bottom:20px;
+}
+
+.mail-card__sender{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* modal */
+
+
+.modal-newPost { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    display: none; 
+    font-family: 'Nanum Pen Script', cursive;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 9;
+}
+
+.modal-newPost.show { display: block; }
+
+.modal_body { 
+    position: fixed; 
+    max-width: 400px;
+    top: 50%; 
+    left: 50%; 
+    width: 80%; 
+    padding: 30px; 
+    background-color: rgb(255, 255, 255); 
+    border-radius: 10px; 
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15); 
+    transform: translateX(-50%) translateY(-50%); 
+}
+
+.modal_form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_form-partname{
+    width:70%;
+}
+
+.modal_form > input{
+    width:70%;
+    border-radius: 10px;
+    padding:5px;
+    margin-bottom:10px;
+    border:1px solid rgba(0,0,0,0.2);
+
+}
+
+.modal_form > textarea{
+    width:70%;
+    border-radius: 10px;
+    padding:10px;
+    margin-bottom:20px;
+    border:1px solid rgba(0,0,0,0.2);
+
+}
+
+
+.btn-open-popup{
+    position:fixed;
+}
+
+.newPostButton{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width:80px;
+    height:30px;
+    bottom :20px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid black; 
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
+}
+

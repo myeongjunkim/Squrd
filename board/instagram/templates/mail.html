@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/mail.css' %}">
+<script>
+    window.onload = () => {
+        const list = document.querySelectorAll('.list');
+        list.forEach((item) => 
+        item.classList.remove('active'));
+        list[4].classList.add('active');
+
+        const body = document.querySelector('body');
+        const modal = document.querySelector('.modal-newPost');
+        const btnOpenPopup = document.querySelector('.btn-open-popup');
+        
+        btnOpenPopup.addEventListener('click', () => {
+            modal.classList.toggle('show');
+            if (modal.classList.contains('show')) {
+                body.style.overflow = 'hidden';
+            }
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.toggle('show');
+
+                if (!modal.classList.contains('show')) {
+                    body.style.overflow = 'auto';
+                }
+            }
+        });
+
+    }
+</script>
+{% endblock %}
+
+{% block contents %}
+<div class="contents-wrap">
+    <section class="contents-body">
+        {% if messages %}
+        {% for message in messages  %}
+            <div>{{message}}</div>
+        {% endfor %}
+        {% endif %}
+        <div class="content-title">
+            <span>Mail</span>
+        </div>
+        <div class="mail-wrap">
+            <hr>
+            <a href="" class="mail-card">
+                <div class="mail-card__sender">
+                    <span class="senderName">익명</span>
+                    <span class="senderDate">22/02/21 12:29</span>
+                </div>
+                <div class="senderBody">
+                    안녕하세요 메일입니다!
+                </div>
+                <hr>
+            </a>
+            <a href="" class="mail-card">
+                <div class="mail-card__sender">
+                    <span class="senderName">익명</span>
+                    <span class="senderDate">22/02/21 12:29</span>
+                </div>
+                <div class="senderBody">
+                    안녕하세요 메일입니다!
+                </div>
+                <hr>
+            </a>
+
+         
+
+        </div>
+        
+    </section>
+</div>
+
+{% endblock %}
+
+
+{% block contents2 %}
+    <button class="btn-open-popup newPostButton "><ion-icon name="mail-outline"></ion-icon><span>메일쓰기</span></button>
+    
+    <div class="modal-newPost">
+        <div class="modal_body">
+            <form class="modal_form" action="{% url 'send_mail' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal_form-partname">받는 사람</div>
+                <input type="text" placeholder="abce@example.com" name="mail_receiver">
+                <div class="modal_form-partname">제목</div>
+                <input type="text" placeholder="제목을 입력해 주세요" name="mail_title">
+                <div class="modal_form-partname">내용</div>
+                <textarea id="" cols="30" rows="5" placeholder="메일을 작성해주세요" name="mail_textbody"></textarea>
+                <button class="newPostButton" type="submit"><span>보내기<span><img src="" alt=""></button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

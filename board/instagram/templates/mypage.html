@@ -17,7 +17,10 @@
 {% block contents %}
 <div class="contents-wrap">
     <section class="contents-body">
-        <h3>mypage</h3>
+        <div class="content-title">
+            <span>mypage</span>
+            <a href="{% url 'mail' %}"><ion-icon name="mail-open-outline"></ion-icon></a>
+        </div>
         <div class="content-star">
             <img src="{% static 'img/star.png' %}" alt="">
             <div>{{user.name}} 님의 별포인트는 총 <span class="user-point">{{user.point}}</span> 입니다!</div>
@@ -47,16 +50,5 @@
         </form>
     </section>
 </div>
-
-<!-- 
-<form class="modal_form" action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <label for="post_img">
-        <img src="{% static 'img/aboutus_plus.png' %}" id="img_plus" alt="X">
-    </label>
-    <input id="post_img" type="file" onchange="changeImg(event,'img_plus')" name="post_image" />
-    <textarea id="" cols="30" rows="5" placeholder="About U" name="post_textbody"></textarea>
-    <button class="newPostButton" type="submit"><span>글쓰기<span><img src="" alt=""></button>
-</form> -->
 
 {% endblock %}

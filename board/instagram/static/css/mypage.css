@@ -11,10 +11,19 @@
     flex-direction: column;
 }
 
-.contents-body > h3 {
-    align-self: flex-start;
+.content-title{
+    display: flex;
+    justify-content: space-between;
     margin:20px;
 }
+
+.content-title > *{
+    font-size: 30px;
+    color:black;
+    font-weight: 700;
+}
+
+
 
 .content-star{
     text-align: center;
