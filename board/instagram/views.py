@@ -58,12 +58,12 @@ def insta_comment(request, id):
         if perent_comment_id:
             perent_comment = get_object_or_404(Insta_Comment, pk = perent_comment_id)
             comment.parent_comment = perent_comment
+        comment.save()
 
         user = get_object_or_404(User, id = request.user.id)
         user.point += 5
         user.save()
 
-        comment.save()
 
     # 댓글 필터
     comments = Insta_Comment.objects.filter(posting = id)
