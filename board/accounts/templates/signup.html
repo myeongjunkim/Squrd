@@ -11,13 +11,18 @@
 {% block contents %}
 <div class="signwrqp">
   <form method="POST" class="loginForm">
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="div-message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
     {% csrf_token %}
     <h2>Sign up</h2>
     <div class="idForm">
-      <input type="text" class="id" name="input_name" placeholder="Name">
+      <input type="text" class="id" name="input_id" placeholder="Id (Email@example.ex)">
     </div>
     <div class="idForm">
-      <input type="text" class="id" name="input_id" placeholder="Email@example.ex">
+      <input type="text" class="id" name="input_name" placeholder="nickname">
     </div>
     <div class="passForm">
       <input type="password" class="pw" name="input_pw" placeholder="password">
@@ -25,6 +30,7 @@
     <div class="passForm">
       <input type="password" class="pw" name="input_pw_check" placeholder="password check">
     </div>
+    
     <button type="submit" class="btn">
       SIGN UP
     </button>

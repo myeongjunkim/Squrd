@@ -7,6 +7,13 @@
     overflow: auto;
 }
 
+.div-message{
+    width:100%;
+    padding:10px;
+    text-align: center;
+    background-color: #F0FFC2;
+}
+
 .vote-wrap{
     display:flex;
     flex-direction:column;

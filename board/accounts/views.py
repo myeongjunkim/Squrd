@@ -36,13 +36,12 @@ def signin(request):
 
             user.point += 5
             user.save()
-
-            # mypage = get_object_or_404(Mypage, user = user)
-            # mypage.point +=5
-            # mypage.save()
+            messages.success(request, f"로그인 성공! 포인트 5점 획특! 현재 포인트 {user.point} 점" )
 
             return redirect('index')
         else:
+            messages.error(request, "아이디와 비밀번호가 일치하지 않습니다. 다시 확인해 주세요")
+
             print("로그인 실패")
     return render(request, "signin.html")
     
@@ -54,7 +53,8 @@ def signup(request):
         input_pw = request.POST['input_pw']
         input_pw_check = request.POST['input_pw_check']
         if User.objects.filter(username=input_id).exists():
-            return HttpResponse('overlap')
+            messages.error(request, "이미 존재하는 아이디 입니다. 다른 아이디를 입력해 주세요!" )
+            return redirect("signup")
 
         else:
             if input_name != "" and input_id != "" and input_pw !="":
@@ -63,16 +63,21 @@ def signup(request):
                     user.name = input_name
                     user.save()
                     print("회원정보 디비 저장")
+                    messages.success(request, "회원가입 성공! 로그인하여 입장해 주세요!" )
+                    
                     return redirect("signin")
                 else:
+                    messages.error(request, "비밀번호와 비밀번호 확인이 일치하지 않습니다.")
                     return redirect("signup")
             else:
-                redirect("signup")
+                messages.error(request, "아이디와 비밀번호를 입력해 주세요!")
+                return redirect("signup")
     return render(request, "signup.html")
 
 
 def signout(request):
     logout(request)
+    messages.success(request, "로그아웃 되었습니다!" )
     return redirect('signin')
 
 # kakao login
@@ -123,6 +128,7 @@ def kakao_login_callback(request):
     login(request, user)
     user.point += 5
     user.save()
+    messages.success(request, f"로그인 성공! 포인트 5점 획특! 현재 포인트 {user.point} 점" )
     return redirect(reverse("index"))
 
     

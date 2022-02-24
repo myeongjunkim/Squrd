@@ -2,13 +2,19 @@
 {% load static %}
 
 {% block header %}
-<link rel="stylesheet" href="{% static 'css/comment.css' %}">
+<link rel="stylesheet" href="{% static 'css/insta_comment.css' %}">
 <script type="text/JavaScript" src="{% static 'js/insta_comment.js' %}"></script>
 {% endblock %}
 
 {% block contents %}
 <div class="comment-main">
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="div-message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
     <a href="{% url 'feed' %}">피드로 가기</a>
+    
     <div class="vote-wrap">
         <!-- for -->
         {% for comment_dic in comments_list %}

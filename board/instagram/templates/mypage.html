@@ -16,6 +16,11 @@
 
 {% block contents %}
 <div class="contents-wrap">
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="div-message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
     <section class="contents-body">
         <div class="content-title">
             <span>mypage</span>

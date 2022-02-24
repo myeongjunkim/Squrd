@@ -28,6 +28,7 @@ def update_mypage(request):
         user.name = request.POST['user_name']
         user.email = request.POST['user_email']
         user.save()
+        messages.success(request, "개인정보가 업데이트 되었어요!" )
         return redirect('mypage')
 
 def create_post(request):
@@ -41,6 +42,7 @@ def create_post(request):
         user.point += 5
         user.save()
         new_post.save()
+        messages.success(request, f"포인트 5점 획특! 현재 포인트 {user.point} 점" )
         return redirect('feed')
 
 def insta_comment(request, id):
@@ -65,6 +67,8 @@ def insta_comment(request, id):
         user = get_object_or_404(User, id = request.user.id)
         user.point += 5
         user.save()
+
+        messages.success(request, f"포인트 5점 획특! 현재 포인트 {user.point} 점" )
 
 
     # 댓글 필터

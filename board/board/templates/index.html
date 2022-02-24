@@ -10,7 +10,11 @@
 
 {% block contents %}
 <div class="index">
-    
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="div-message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
     <div class="intro">
         <h2 style="font-weight: 600;">Squrd 게시판입니다!</h3>
         <div>다양한 게시판을 방문하고 댓글을 남기며</div> 

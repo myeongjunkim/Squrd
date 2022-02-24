@@ -10,6 +10,11 @@
 {% block contents %}
 
 <div class="contents-wrap">
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="div-message">{{message}}</div>
+        {% endfor %}
+    {% endif %}
     {% for post in posts reversed %}
     <section class="section__cards">
         <div class="card-header">
