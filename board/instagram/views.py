@@ -1,8 +1,10 @@
+import re
 from webbrowser import get
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Insta_Comment
+from .models import *
 from django.utils import timezone
 from accounts.models import User
+from django.contrib import messages
 
 
 # Create your views here.
@@ -74,3 +76,28 @@ def insta_comment(request, id):
             comments_list.append({"comment":comment, "recomments":recomments})
 
     return render(request, 'post_detail.html', {'vote_post':post, 'comments_list':comments_list})
+
+
+# 메일
+def view_mail(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
+    return render(request, 'mail.html')
+
+def send_mail(request):
+    if request.method == "POST":
+        mail_receiver = request.POST['mail_receiver']
+        if User.objects.filter(username=mail_receiver).exists():
+            new_mail = Mail()
+            new_mail.receiver = get_object_or_404(User, username = mail_receiver)
+            new_mail.sender = request.user
+            new_mail.title = request.POST['mail_title']
+            new_mail.textbody = request.POST['mail_textbody']
+            new_mail.pub_date = timezone.now()
+            messages.success(request, "메일을 성공적으로 보냈어요!")
+        else:
+            messages.error(request, "메일 전송에 실패했어요 받는 사람 아이디를 확인해 주세요")
+
+        
+        return redirect('mail')
+        
