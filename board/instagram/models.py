@@ -15,3 +15,10 @@ class Insta_Comment(models.Model):
 
     class Meta:
         db_table = 'insta_comment'
+
+class Mail(models.Model):
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    sender = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
+    textbody = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
