@@ -43,7 +43,7 @@
             <div class="div-message">{{message}}</div>
         {% endfor %}
         {% endif %}
-        <div class="contents-body__back" onClick="javascript:history.go(-1);"><ion-icon name="arrow-back-outline"></ion-icon></div>
+        <a class="contents-body__back" href="{% url 'mypage' %}"><ion-icon name="arrow-back-outline"></ion-icon></a>
         <div class="content-title">
             <span>Mail</span>
         </div>

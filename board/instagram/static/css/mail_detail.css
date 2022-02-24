@@ -12,11 +12,9 @@
 }
 
 .contents-body__back{
+    color:black;
+    text-decoration-line:none;
     padding-top:10px;
-}
-
-.contents-body__back > ion-icon{
-    cursor: pointer;
 }
 
 .content-mail{

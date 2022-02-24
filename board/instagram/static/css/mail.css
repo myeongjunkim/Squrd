@@ -12,6 +12,8 @@
 }
 
 .contents-body__back{
+    color:black;
+    text-decoration-line:none;
     padding-top:10px;
 }
 
@@ -148,7 +150,7 @@
     color: black;
     border: 1px solid black; 
     font-family: 'Nanum Pen Script', cursive;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
 }
