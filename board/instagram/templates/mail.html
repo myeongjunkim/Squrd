@@ -43,13 +43,14 @@
             <div class="div-message">{{message}}</div>
         {% endfor %}
         {% endif %}
+        <div class="contents-body__back" onClick="javascript:history.go(-1);"><ion-icon name="arrow-back-outline"></ion-icon></div>
         <div class="content-title">
             <span>Mail</span>
         </div>
         <div class="mail-wrap">
             <hr>
-            {% for mail in mails%}
-            <a href="" class="mail-card">
+            {% for mail in mails reversed%}
+            <a href="{% url 'detail_mail' mail.id %}" class="mail-card">
                 <div class="mail-card__sender">
                     <span class="senderName">{{mail.sender}}</span>
                     <span class="senderDate">{{mail.pub_date}}</span>
@@ -58,20 +59,6 @@
                 <hr>
             </a>
             {% endfor %}
-            
-            <a href="" class="mail-card">
-                <div class="mail-card__sender">
-                    <span class="senderName">익명</span>
-                    <span class="senderDate">22/02/21 12:29</span>
-                </div>
-                <div class="senderBody">
-                    안녕하세요 메일입니다!
-                </div>
-                <hr>
-            </a>
-
-         
-
         </div>
         
     </section>

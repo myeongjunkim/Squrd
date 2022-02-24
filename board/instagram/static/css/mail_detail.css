@@ -1,0 +1,41 @@
+.contents-wrap{
+    padding:120px 20px 20px 20px;
+    height:auto;
+
+}
+
+.contents-body{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contents-body__back{
+    padding-top:10px;
+}
+
+.contents-body__back > ion-icon{
+    cursor: pointer;
+}
+
+.content-mail{
+    margin:20px;
+    padding:10px;
+    background-color: #F0FFC2;
+    
+}
+
+.content-mail__message{
+    font-size: 30px;
+    font-weight: 1000;
+    margin-bottom:20px;
+}
+
+.content-mail__body{
+    padding:10px;
+}
+
+.content-mail__pub_date{
+    text-align: right;
+}

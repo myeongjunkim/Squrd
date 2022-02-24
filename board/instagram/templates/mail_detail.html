@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/mail_detail.css' %}">
+<script>
+    window.onload = () => {
+        const list = document.querySelectorAll('.list');
+        list.forEach((item) => 
+        item.classList.remove('active'));
+        list[4].classList.add('active');
+
+    }
+</script>
+{% endblock %}
+
+{% block contents %}
+<div class="contents-wrap">
+    <section class="contents-body">
+        <div class="contents-body__back" onClick="javascript:history.go(-1);"><ion-icon name="arrow-back-outline"></ion-icon></div>
+
+        <div class="content-mail">
+            <div class="content-mail__message">Message</div>
+            <div class="content-mail__sender">From: {{mail.sender}}</div>
+            <div class="content-mail__title">Title: {{mail.title}}</div>
+            <hr>
+            <div class="content-mail__body" >{{mail.textbody}}</div>
+            <hr>
+            <div class="content-mail__pub_date">at {{mail.pub_date}}</div>
+        </div>
+        
+        
+    </section>
+</div>
+
+{% endblock %}

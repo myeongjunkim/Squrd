@@ -12,6 +12,8 @@ urlpatterns = [
     path('update-mypage', update_mypage, name="update_mypage"),
     path('mail', view_mail, name="mail"),
     path('send-mail', send_mail, name="send_mail"),
+    path('detail-mail/<str:id>', detail_mail, name="detail_mail"),
+
 
 
 

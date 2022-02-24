@@ -11,6 +11,14 @@
     flex-direction: column;
 }
 
+.contents-body__back{
+    padding-top:10px;
+}
+
+.contents-body__back > ion-icon{
+    cursor: pointer;
+}
+
 .div-message{
     width:100%;
     padding:10px;
@@ -21,7 +29,7 @@
 .content-title{
     display: flex;
     justify-content: space-between;
-    margin:20px;
+    margin:0px 20px 0px 20px;
 }
 
 

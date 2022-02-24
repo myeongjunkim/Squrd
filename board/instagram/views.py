@@ -102,4 +102,11 @@ def send_mail(request):
 
         
         return redirect('mail')
-        
+    
+def detail_mail(request, id):
+    if not request.user.is_authenticated:
+        return redirect('signin')
+
+    mail = get_object_or_404(Mail, pk = id)
+    return render(request, 'mail_detail.html', {"mail":mail})
+    
