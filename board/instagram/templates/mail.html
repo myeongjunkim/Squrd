@@ -40,7 +40,7 @@
     <section class="contents-body">
         {% if messages %}
         {% for message in messages  %}
-            <div>{{message}}</div>
+            <div class="div-message">{{message}}</div>
         {% endfor %}
         {% endif %}
         <div class="content-title">
@@ -48,16 +48,17 @@
         </div>
         <div class="mail-wrap">
             <hr>
+            {% for mail in mails%}
             <a href="" class="mail-card">
                 <div class="mail-card__sender">
-                    <span class="senderName">익명</span>
-                    <span class="senderDate">22/02/21 12:29</span>
+                    <span class="senderName">{{mail.sender}}</span>
+                    <span class="senderDate">{{mail.pub_date}}</span>
                 </div>
-                <div class="senderBody">
-                    안녕하세요 메일입니다!
-                </div>
+                <span class="senderTitle">{{mail.title}}</span>
                 <hr>
             </a>
+            {% endfor %}
+            
             <a href="" class="mail-card">
                 <div class="mail-card__sender">
                     <span class="senderName">익명</span>

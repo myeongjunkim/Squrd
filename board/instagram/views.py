@@ -82,7 +82,8 @@ def insta_comment(request, id):
 def view_mail(request):
     if not request.user.is_authenticated:
         return redirect('signin')
-    return render(request, 'mail.html')
+    mails = Mail.objects.filter(receiver = request.user.id)
+    return render(request, 'mail.html', {"mails":mails})
 
 def send_mail(request):
     if request.method == "POST":
@@ -90,10 +91,11 @@ def send_mail(request):
         if User.objects.filter(username=mail_receiver).exists():
             new_mail = Mail()
             new_mail.receiver = get_object_or_404(User, username = mail_receiver)
-            new_mail.sender = request.user
+            new_mail.sender = request.user.username
             new_mail.title = request.POST['mail_title']
             new_mail.textbody = request.POST['mail_textbody']
             new_mail.pub_date = timezone.now()
+            new_mail.save()
             messages.success(request, "메일을 성공적으로 보냈어요!")
         else:
             messages.error(request, "메일 전송에 실패했어요 받는 사람 아이디를 확인해 주세요")
