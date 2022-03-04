@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/roulette.css' %}">
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 <script type="text/JavaScript" src="{% static 'js/roulette.js' %}"></script>
+<script type="text/JavaScript" src="{% static 'js/index.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 {% endblock %}
 
@@ -18,7 +19,7 @@
     <div class="intro">
         <h2 style="font-weight: 600;">Squrd 게시판입니다!</h3>
         <div>다양한 게시판을 방문하고 댓글을 남기며</div> 
-        <div>다양한 사람과 소통해보세요!</div>
+        <div>많은 사람과 소통해보세요!</div>
     </div>
     
     
@@ -27,10 +28,16 @@
         <span style="font-weight: 500;">{{ user.name }} 님 환영합니다.</span>
         <a href="{% url 'signout' %}">Log out</a>
     </div>
-    
+    {% else %}
+    <div class="col text-center">
+        <a href="{% url 'signin' %}" class="newBtn btn btn-primary" style>
+          Log in
+        </a>
+    </div>
+    {% endif %}
 
     <div class="cards">
-        <div class="card" style="width: 30%;">
+        <div class="card disable" style="width: 30%;">
             <a href="{% url 'main' %}">
                 <img src="../static/img/board1.png" class="card-img-top" alt="board1">
                 <div class="card-body">
@@ -38,31 +45,16 @@
                 </div>
             </a>
         </div>
-        <div class="card" style="width: 30%;">
-            <a href="{% url 'main2' %}">
-                <img src="../static/img/board2.png" class="card-img-top" alt="board2">
-                <div class="card-body">
-                    <p class="card-text">Feedback</p>
-                </div>
-            </a>
-        </div>
-        <div class="card" style="width: 30%;">
-            <a href="{% url 'main3' %}">
-                <img src="../static/img/board3.png" class="card-img-top" alt="board3">
-                <div class="card-body">
-                    <p class="card-text">All</p>
-                </div>
-            </a>
-        </div>
-        <div class="card" style="width: 30%;">
+        
+        <div class="card disable" style="width: 30%;">
             <a href="{% url 'article' %}">
-                <img src="../static/img/board3.png" class="card-img-top" alt="board3">
+                <img src="../static/img/board2.png" class="card-img-top" alt="board3">
                 <div class="card-body">
-                    <p class="card-text">Entertain</p>
+                    <p class="card-text">Article</p>
                 </div>
             </a>
         </div>
-        <div class="card" style="width: 30%;">
+        <div class="card disable" style="width: 30%;">
             <a href="{% url 'view_vote' %}">
                 <img src="../static/img/board3.png" class="card-img-top" alt="board3">
                 <div class="card-body">
@@ -72,16 +64,10 @@
         </div>
         
     </div>
+    <button class="button" onclick="clickBtn()">Click Me</button>
 
-    {% else %}
+
     
-    <div class="col text-center">
-        <a href="{% url 'signin' %}" class="newBtn btn btn-primary" style>
-          Log in
-        </a>
-    </div>
-
-    {% endif %}
 
     <div class="gameImg-wrap">
         <img class="gameImg" src="../static/img/gambler.png" alt="not found" data-bs-toggle="modal" data-bs-target="#exampleModal">

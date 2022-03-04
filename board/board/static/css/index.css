@@ -22,17 +22,20 @@
 
 .userInfo, .cards{
     margin-top:20px;
+    margin-bottom:10px;
 }
+
 
 
 .card{
     display: inline-block;
     margin:10px 5px 10px 5px;
+    font-size: 1.2rem;
+
 }
 
-.card{
-    font-size: 1.2rem;
-    
+.disable{
+    display:none;
 }
 
 .cards .card a{
@@ -40,9 +43,30 @@
     color:black;
 }
 
-.newBtn {
+/* .newBtn {
     width:30%;
     max-width: calc(480px*0.3);
     background-color: #87f3f7;;
     color: #0d6efd;
-}
+} */
+
+.button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .button:hover {background-color: #3e8e41}
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
