@@ -1,0 +1,32 @@
+
+  
+  .box {
+    position: absolute;
+    animation: rotate 2.5s infinite linear;
+    margin: 0;
+    overflow: hidden;
+    border-radius:50%;
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  .ball {
+    pointer-events: none;
+    position: absolute; 
+    width: 2px;
+    height: 2px;
+    border-radius: 50%; 
+    background: gray;
+    animation: implode 1s ease-in-out;
+    animation-fill-mode: both;
+    opacity: .5;
+  }
+  
+  @keyframes implode {
+    100% {transform: scale(0)}
+  }

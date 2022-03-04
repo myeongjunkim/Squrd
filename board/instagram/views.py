@@ -87,6 +87,16 @@ def view_mail(request):
     if not request.user.is_authenticated:
         return redirect('signin')
     mails = Mail.objects.filter(receiver = request.user.id)
+    
+    # users = User.objects.all()
+    # user_login=[]
+    # for user in users:
+    #     if user.is_authenticated:
+    #         print(user.is_active)
+    #         user_login.append(user)
+
+        
+
     return render(request, 'mail.html', {"mails":mails})
 
 def send_mail(request):

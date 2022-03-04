@@ -1,10 +1,11 @@
 .rendering-container{
   display: inline-block;
+  position:relative;
   width: 100%;
   max-width: 480px;
   height: auto;
   min-height:100vh;
-  overflow: auto;
+  overflow: scroll;
   font-family: 'Nanum Pen Script', cursive;
   font-size: 20px;
   border-top-left-radius: 10px;
@@ -21,12 +22,9 @@
   }
 }
 
-/* html, body {
-  margin: 0;
-  padding: 0;
-  color: #efefef;
-  font-family: 'Nanum Pen Script', cursive;
-} */
+
+
+
 
 body{
   display: flex;
