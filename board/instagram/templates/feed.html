@@ -37,7 +37,7 @@
 
 
 {% block contents2 %}
-    <button class="btn-open-popup newPostButton "><ion-icon name="add-circle-outline"></ion-icon><span>글쓰기</span></button>
+    <button class="btn-open-popup newPostButton" onclick="buttonEffect()"><ion-icon name="add-circle-outline"></ion-icon><span>글쓰기</span></button>
     
     <div class="modal-newPost">
         <div class="modal_body">
@@ -48,7 +48,7 @@
                 </label>
                 <input id="post_img" type="file" onchange="changeImg(event,'img_plus')" name="post_image" />
                 <textarea id="" cols="30" rows="5" placeholder="About U" name="post_textbody"></textarea>
-                <button class="newPostButton" type="submit"><span>글쓰기<span><img src="" alt=""></button>
+                <button class="modalButton" type="submit"><span>글쓰기<span><img src="" alt=""></button>
             </form>
         </div>
     </div>

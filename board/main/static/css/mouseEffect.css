@@ -1,20 +1,4 @@
 
-  
-  .box {
-    position: absolute;
-    animation: rotate 2.5s infinite linear;
-    margin: 0;
-    overflow: hidden;
-    border-radius:50%;
-  }
-  
-  @keyframes rotate {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-
   .ball {
     pointer-events: none;
     position: absolute; 
@@ -30,3 +14,27 @@
   @keyframes implode {
     100% {transform: scale(0)}
   }
+
+div.clickEffect{
+    position:fixed;
+    box-sizing:border-box;
+    border-style:solid;
+    border-color:#87f3f7;
+    border-radius:50%;
+    animation:clickEffect 0.4s ease-out;
+    z-index:99999;
+}
+@keyframes clickEffect{
+0%{
+    opacity:1;
+    width:0.5em; height:0.5em;
+    margin:-0.25em;
+    border-width:0.5em;
+    }
+100%{
+    opacity:0.2;
+    width:8em; height:8em;
+    margin:-4.0em;
+    border-width:0.03em;
+    }
+}

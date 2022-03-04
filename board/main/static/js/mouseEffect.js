@@ -113,7 +113,7 @@ $(document).ready(function(){
       mousePos.y = e.pageY;
     });
     
-    $(window).mouseleave(function(e) {
+    $(window).click(function(e) {
       mousePos.x = -1;
       mousePos.y = -1;
     });
@@ -138,3 +138,14 @@ $(document).ready(function(){
     }, 50);
   });
   
+
+
+
+function clickEffect(e){
+    var d=document.createElement("div");
+    d.className="clickEffect";
+    d.style.top=e.clientY+"px";d.style.left=e.clientX+"px";
+    document.body.appendChild(d);
+    d.addEventListener('animationend',function(){d.parentElement.removeChild(d);}.bind(this));
+}
+document.addEventListener('click',clickEffect);
