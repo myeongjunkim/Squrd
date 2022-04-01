@@ -1,10 +1,5 @@
 # Squrd
 
-http://ec2-54-180-95-65.ap-northeast-2.compute.amazonaws.com:8080/
-
-
-# 프로젝트 이름
-
 <p align="center">
   <br>
   <img src="./images/common/logo-sample.jpeg">
