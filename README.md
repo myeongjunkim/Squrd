@@ -1,5 +1,5 @@
 # Squrd
-
+<!-- 
 <p align="center">
   <br>
   <img src="./images/common/logo-sample.jpeg">
@@ -24,7 +24,7 @@ GIF Images
 | :--------: | :--------: | :------: |
 |   ![js]    |   ![ts]    | ![react] |
 
-<br>
+<br> -->
 
 ## 구현 기능
 
