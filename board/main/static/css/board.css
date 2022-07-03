@@ -65,7 +65,7 @@
 
 .newBtn:hover{
     background: #87f3f7;
-    
+
 
 }
 
@@ -75,6 +75,11 @@
     color:black;
     border:none;
 }
+
+.modal-footer .btn-primary:hover{
+    color:white;
+  
+  }
 
 a {
     text-decoration-line: none;

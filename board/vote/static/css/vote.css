@@ -226,11 +226,39 @@ label.vote-card:active {
 
 
 .newBtn {
+
+    background: #87f3f7;
+    color:black;
+    border:none;
+
+    font-family: 'Nanum Pen Script', cursive;
     position:fixed;
     width:30%;
     max-width: calc(480px*0.3);
     transform: translateX(0);
     bottom:5%;
+
+}
+
+.modal-dialog{
+  max-width: 450px;
+    font-family: 'Nanum Pen Script', cursive;
+
+}
+
+.newBtn:hover{
+  background: #87f3f7;
+
+}
+
+.modal-footer .btn-primary{
+  background: #87f3f7;
+  color:black;
+  border:none;
+}
+
+.btn-primary:hover{
+  color:white;
 
 }
 
