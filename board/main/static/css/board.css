@@ -43,9 +43,17 @@
 
 .modal-dialog{
     max-width: 450px;
+      font-family: 'Nanum Pen Script', cursive;
+
 }
 
 .newBtn {
+    background: #87f3f7;
+    color:black;
+    border:none;
+
+    font-family: 'Nanum Pen Script', cursive;
+
     position:fixed;
     width:30%;
     max-width: calc(480px*0.3);
@@ -53,6 +61,19 @@
     bottom:5%;
     /* background-color: #87f3f7;;
     color: #0d6efd; */
+}
+
+.newBtn:hover{
+    background: #87f3f7;
+    
+
+}
+
+
+.modal-footer .btn-primary{
+    background: #87f3f7;
+    color:black;
+    border:none;
 }
 
 a {
