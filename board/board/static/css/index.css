@@ -70,3 +70,17 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+
+
+.btn-primary{
+    background: #87f3f7;
+    color:black;
+    border:none;
+}
+
+ .btn-primary:hover{
+    color:white;
+    background: #87f3f7;
+
+  
+  }
