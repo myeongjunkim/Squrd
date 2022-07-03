@@ -25,12 +25,12 @@ ENTERTAIN={
     "탠아시아":{"url":"https://tenasia.hankyung.com","main_div":".news-top","title":".news-tit","img_div":".thumb"},
     "스포츠월드":{"url":"https://www.sportsworldi.com","main_div":"#wps_layout1_box1","title":".tit","img_div":".pic"},
     "imbc":{"url":"https://enews.imbc.com","main_div":".article-first","title":".title","img_div":"a"},
-    "sbs연예":{"url":"https://ent.sbs.co.kr","main_div":".news_wide_list","title":".nwl_title","img_div":".nwl_image_w"},
-    "스포츠동아":{"url":"https://sports.donga.com","main_div":".large","title":".txt","img_div":".thumb"},
+    # "sbs연예":{"url":"https://ent.sbs.co.kr","main_div":".news_wide_list","title":".nwl_title","img_div":".nwl_image_w"},
+    # "스포츠동아":{"url":"https://sports.donga.com","main_div":".large","title":".txt","img_div":".thumb"},
     "티비리포트":{"url":"https://www.tvreport.co.kr","main_div":"#homepage-feature-banner-1","title":".main-img-title","img_div":".banner-image"},
     "티비데일리":{"url":"http://tvdaily.co.kr","main_div":".head_0","title":".ellipsis_txt1","img_div":".thum"},
     "뉴스엔":{"url":"https://www.newsen.co.kr","main_div":".index_headline","title":"dd p a","img_div":"dt"},
-    "스포츠한국":{"url":"https://sports.hankooki.com","main_div":".head1","title":".gisa_list_rel","img_div":"dt"},
+    # "스포츠한국":{"url":"https://sports.hankooki.com","main_div":".head1","title":".gisa_list_rel","img_div":"dt"},
     
     # "스타뉴스":{"url":"https://star.mt.co.kr","main_div":".bundle.bthum","title":".tit","img_div":".thum"},
     # "스포츠경향":{"url":"https://sports.khan.co.kr","main_div":".box_topnews","title":".caption","img_div":"picture"},
@@ -83,6 +83,7 @@ def update_article(entertain_name, title, href, img_url):
 
 
 def get_source(soup, entertain_name):
+    print(entertain_name)
     main_div = soup.select_one(ENTERTAIN[entertain_name]["main_div"])
     # data
     title = main_div.select_one(ENTERTAIN[entertain_name]["title"]).text.strip()
