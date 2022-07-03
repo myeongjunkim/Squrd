@@ -2,7 +2,7 @@
     /* margin: 0px;
     padding: 0px;
     text-decoration: none; */
-    font-family:sans-serif;
+    font-family: 'Nanum Pen Script', cursive;
     
   }
     
@@ -82,10 +82,13 @@
     margin-bottom: 20px;
     width:80%;
     height:40px;
-    background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+    /* background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec); */
+
+    background: #87f3f7;
+    color:black;
+
     background-position: left;
     background-size: 200%;
-    color:white;
     font-weight: bold;
     border:none;
     cursor:pointer;
@@ -94,7 +97,8 @@
   }
   
   .btn:hover {
-    background-position: right;
+    /* background-position: right; */
+    color:white;
   }
   
   .bottomText {
