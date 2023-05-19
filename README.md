@@ -2,7 +2,9 @@
 
 미디어/콘텐츠 분야의 커뮤니티 플렛폼
 
+## 진행 내역
 
+[진행 내역 Notion 보기](https://www.notion.so/mmyeong/Squrd-538e0f2e96cc442cbc461490a39615b8?pvs=4)
 
 ## 구현 기능
 
