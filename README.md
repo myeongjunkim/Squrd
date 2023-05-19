@@ -34,12 +34,11 @@
 - 썸네일, 기사제목, 기사링크 중심의 데이터 수집
 
 
-
 ## 기술 스택
 
 | JavaScript | Django & Python |  HTML & CSS   |
 | :--------: |    :--------:   |    :------:   |
-| <img src="https://github.com/myeongjunkim/Pretty-Lion/assets/82504981/8c05fc3d-7b6d-4951-b8e2-10a1aeee1638" height=50px>                          | <img src="https://github.com/myeongjunkim/Pretty-Lion/assets/82504981/bfd135d7-5337-4cff-a456-126231ac8c25" height=50px>                          | <img src="https://github.com/myeongjunkim/Pretty-Lion/assets/82504981/46f5c6c7-7bfc-4021-a60e-8bdc05ad35c2" height=50px> |
+| <img src="https://github.com/myeongjunkim/Squrd/assets/82504981/aebcc67a-344c-4187-816f-5fd8c5b69e1f" height=50px>                          | <img src="https://github.com/myeongjunkim/Squrd/assets/82504981/ba7149a0-21b6-453c-bf14-0b52f7765e2c" height=50px>                          | <img src="https://github.com/myeongjunkim/Squrd/assets/82504981/a773b720-275a-44f9-a67d-e4e0e275472b" height=50px> |
 
 
 
