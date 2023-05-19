@@ -1,30 +1,7 @@
-# Squrd
-<!-- 
-<p align="center">
-  <br>
-  <img src="./images/common/logo-sample.jpeg">
-  <br>
-</p>
+## 소개
 
-## 프로젝트 소개
+미디어/콘텐츠 분야의 커뮤니티 플렛폼
 
-<p align="justify">
-프로젝트 개요/동기
-</p>
-
-<p align="center">
-GIF Images
-</p>
-
-<br>
-
-## 기술 스택
-
-| JavaScript |   Django   |  Python  |
-| :--------: | :--------: | :------: |
-|   ![js]    |   ![ts]    | ![react] |
-
-<br> -->
 
 
 ## 구현 기능
@@ -56,20 +33,12 @@ GIF Images
 
 
 
-<br>
+## 기술 스택
 
-<!-- ## 배운 점 & 아쉬운 점 -->
-
-<p align="justify">
-
-</p>
-
-<br>
+| JavaScript | Django & Python |  HTML & CSS   |
+| :--------: |    :--------:   |    :------:   |
+| <img src="https://github.com/myeongjunkim/Pretty-Lion/assets/82504981/8c05fc3d-7b6d-4951-b8e2-10a1aeee1638" height=50px>                          | <img src="https://github.com/myeongjunkim/Pretty-Lion/assets/82504981/bfd135d7-5337-4cff-a456-126231ac8c25" height=50px>                          | <img src="https://github.com/myeongjunkim/Pretty-Lion/assets/82504981/46f5c6c7-7bfc-4021-a60e-8bdc05ad35c2" height=50px> |
 
 
-<!-- Stack Icon Refernces -->
 
-[js]: /images/stack/javascript.svg
-[ts]: /images/stack/typescript.svg
-[react]: /images/stack/react.svg
-[node]: /images/stack/node.svg
+
