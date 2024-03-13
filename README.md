@@ -4,7 +4,7 @@
 
 ## 진행 내역
 
-[스쿼드 팀 진행 내역서](https://github.com/myeongjunkim/Squrd/files/14585173/_._0401.pdf)
+[스쿼드 진행 내역서 미리보기](https://docs.google.com/viewer?url=https://github.com/myeongjunkim/Squrd/files/14585173/_._0401.pdf?raw=True)
 
 
 ## 구현 기능
