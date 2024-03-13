@@ -4,7 +4,8 @@
 
 ## 진행 내역
 
-[진행 내역 Notion 보기](https://www.notion.so/mmyeong/Squrd-538e0f2e96cc442cbc461490a39615b8?pvs=4)
+[스쿼드 팀 진행 내역서](https://github.com/myeongjunkim/Squrd/files/14585173/_._0401.pdf)
+
 
 ## 구현 기능
 
@@ -12,6 +13,7 @@
 - 로그인/로그아웃
 - 회원가입
 - 카카오톡 소셜 로그인
+  
 
 ### Profile/instagram
 - 로그인, 게시글 업로드, 댓글 업로드 할 경우 5포인트씩 누적
